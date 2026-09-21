@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- deklarasi dokumen HTML5 -->
+<html lang="id">
+<!-- elemen root, bahasa indonesia -->
+<head>
+<!-- bagian metadata halaman -->
+    <meta charset="UTF-8">
+    <!-- set encoding utf-8 supaya huruf indonesia aman -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- supaya tampil benar di layar hp -->
+    <title>Welcome To Website Yupi Sekolah</title>
+    <!-- judul yang muncul di tab browser -->
+    <meta name="description" content="Bulletin berita resmi SMKN 4 Purwokerto: kabar sekolah, profil, kegiatan, dan kontak.">
+    <!-- deskripsi singkat untuk mesin pencari -->
+</head>
+<!-- tutup head -->
+<body>
+<!-- isi halaman yang terlihat oleh pengunjung -->
+
+    <header>
+    <!-- bagian atas halaman: identitas + menu -->
+        <h1>Welcome To Website Yupi Sekolah</h1>
+        <!-- logo teks / nama bulletin -->
+        <p>kata yupi, kita harus belajar agar pintar !</p>
+        <!-- baris info edisi terbit -->
+
+        <nav>
+        <!-- menu navigasi utama -->
+            <a href="index.html">Beranda</a> |
+            <!-- tautan ke halaman beranda -->
+            <a href="profil.html">Profil</a> |
+            <!-- tautan ke halaman profil sekolah -->
+            <a href="kegiatan.html">Kegiatan Sekolah</a> |
+            <!-- tautan ke halaman agenda kegiatan -->
+            <a href="kontak.html">Kontak</a>
+            <!-- tautan ke halaman kontak -->
+        </nav>
+        <!-- tutup navigasi -->
+    </header>
+    <!-- tutup header -->
+
+    <main>
+    <!-- konten utama halaman -->
+
+        <section color= id="beranda">
+        <!-- bagian beranda / halaman muka -->
+            <h2>Berita Terbaru</h2> 
+            <!-- judul bagian berita -->
+
+            <article>
+            <!-- berita utama 1 -->
+                <h3>Upacara Bendera Peringatan Hari Sumpah Pemuda</h3>
+                <!-- judul berita -->
+                <p><time datetime="2026-09-21">21 September 2026</time> &mdash; Redaksi</p>
+                <!-- tanggal terbit dan penulis -->
+                <p>
+                <!-- paragraf isi berita -->
+                    Seluruh warga SMKN 1 Tangerang mengikuti upacara bendera di lapangan utama.
+                    Ketua OSIS membacakan teks sumpah pemuda, lalu kepala sekolah menekankan pentingnya
+                    disiplin menjelang ujian tengah semester.
+                </p>
+                <!-- isi berita singkat -->
+            </article>
+            <!-- tutup artikel pertama -->
+
+            <article>
+            <!-- berita utama 2 -->
+                <h3>Tim Basket Lolos ke Babak 8 Besar Kejurda</h3>
+                <!-- judul berita -->
+                <p><time datetime="2026-09-19">19 September 2026</time> &mdash; Tim Liputan</p>
+                <!-- tanggal terbit dan penulis -->
+                <p>
+                <!-- paragraf isi berita -->
+                    Tim basket putra sekolah menang 58&ndash;49 atas SMK Negeri 1 tangerang pada babak 16 besar.
+                    Pertandingan berikutnya dijadwalkan di gedung olahraga kabupaten pekan depan.
+                </p>
+                <!-- isi berita singkat -->
+            </article>
+            <!-- tutup artikel kedua -->
+
+            <article>
+            <!-- pengumuman singkat -->
+                <h3>Pengumuman: Perubahan Jadwal Piket Kelas</h3>
+                <!-- judul pengumuman -->
+                <p><time datetime="2026-09-18">18 September 2026</time> &mdash; Wakasek Kurikulum</p>
+                <!-- tanggal terbit dan sumber -->
+                <p>
+                <!-- isi pengumuman -->
+                    Jadwal piket kelas X dan XI mengalami penyesuaian mulai Senin.
+                    Rincian baru dapat dilihat di papan informasi lobi gedung A.
+                </p>
+                <!-- isi pengumuman singkat -->
+            </article>
+            <!-- tutup artikel ketiga -->
+        </section>
+        <!-- tutup bagian beranda -->
+
+        <aside id="feed">
+        <!-- news feed: daftar singkat kabar terbaru di samping berita utama -->
+            <h2>Feed Berita</h2>
+            <!-- judul feed -->
+            <p>Diperbarui <time datetime="2026-09-21T07:30">21 Sep, 07.30</time> &mdash; otomatis dari meja redaksi</p>
+            <!-- info waktu update terakhir feed -->
+
+            <ol>
+                <!-- daftar kabar terbaru, urut dari terbaru -->
+                <li>
+                <!-- item feed 1 -->
+                    <time datetime="2026-09-21T07:30">07.30</time>
+                    <!-- jam unggah -->
+                    [Akademik]
+                    <!-- label kategori -->
+                    <h3><a href="berita/proktor-uts.html">Proktor UTS Pengarahan di Aula Pagi Ini</a></h3>
+                    <!-- judul berita, menaut ke artikel lengkap -->
+                    <p>Rombongan proktor tiba pukul 07.00 dan langsung menggelar pengarahan teknis sebelum pelaksanaan ujian.</p>
+                    <!-- ringkasan singkat isi berita -->
+                </li>
+                <!-- tutup item 1 -->
+                <li>
+                <!-- item feed 2 -->
+                    <time datetime="2026-09-21T06:50">06.50</time>
+                    <!-- jam unggah -->
+                    [Olahraga]
+                    <!-- label kategori -->
+                    <h3><a href="berita/latihan-basket-geser-jam.html">Latihan Basket Digeser ke Sore Hari</a></h3>
+                    <!-- judul berita, menaut ke artikel lengkap -->
+                    <p>Jadwal latihan gabungan putra dan putri mundur ke 15.30 karena lapangan dipakai upacara peringatan.</p>
+                    <!-- ringkasan singkat isi berita -->
+                </li>
+                <!-- tutup item 2 -->
+            </ol>
+            <!-- tutup daftar feed -->
+
+            <p>
+            <!-- tautan lanjutan feed -->
+                Arsip feed sebelumnya menyusul di edisi berikutnya.
+                <!-- catatan ketersediaan arsip -->
+            </p>
+            <!-- tutup paragraf arsip -->
+        </aside>
+        <!-- tutup news feed -->
+
+    </main>
+    <!-- tutup konten utama -->
+
+    <footer>
+    <!-- bagian bawah halaman -->
+        <p>&copy; 2026 </p>
+        <!-- info hak cipta dan frekuensi terbit -->
+        <p>
+        <!-- tautan tambahan -->
+            Halaman lain: <a href="profil.html">Profil</a> &middot;
+            <!-- tautan ke profil -->
+            <a href="kegiatan.html">Kegiatan</a> &middot;
+            <!-- tautan ke kegiatan -->
+            <a href="kontak.html">Redaksi</a>
+            <!-- tautan ke kontak redaksi -->
+        </p>
+        <!-- tutup paragraf tautan -->
+    </footer>
+    <!-- tutup footer -->
+
+</body>
+<!-- tutup body -->
+</html>
+<!-- tutup dokumen html -->
