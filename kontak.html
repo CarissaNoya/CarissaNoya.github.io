@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- deklarasi dokumen HTML5 -->
+<html lang="id">
+<!-- elemen root, bahasa indonesia -->
+<head>
+<!-- bagian metadata halaman -->
+    <meta charset="UTF-8">
+    <!-- set encoding utf-8 supaya huruf indonesia aman -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- supaya tampil benar di layar hp -->
+    <title>Kontak - Bulletin Berita SMKN 4 Purwokerto</title>
+    <!-- judul tab halaman kontak -->
+    <meta name="description" content="Alamat, telepon, dan formulir kirim berita redaksi bulletin SMKN 4 Purwokerto.">
+    <!-- deskripsi singkat untuk mesin pencari -->
+</head>
+<!-- tutup head -->
+<body>
+<!-- isi halaman yang terlihat oleh pengunjung -->
+
+    <header>
+    <!-- bagian atas halaman: identitas + menu -->
+        <h1>Bulletin Berita SMKN 1 Tangerang</h1>
+        <!-- logo teks / nama bulletin -->
+        <p>Hubungi redaksi &mdash; terima berita, kritik, dan masukan siswa</p>
+        <!-- baris pembuka halaman kontak -->
+
+        <nav>
+        <!-- menu navigasi utama -->
+            <a href="index.html">Beranda</a> |
+            <!-- tautan ke halaman beranda -->
+            <a href="profil.html">Profil</a> |
+            <!-- tautan ke halaman profil sekolah -->
+            <a href="kegiatan.html">Kegiatan Sekolah</a> |
+            <!-- tautan ke halaman agenda kegiatan -->
+            <a href="kontak.html">Kontak</a>
+            <!-- tautan ke halaman kontak (halaman aktif) -->
+        </nav>
+        <!-- tutup navigasi -->
+    </header>
+    <!-- tutup header -->
+
+    <main>
+    <!-- konten utama halaman -->
+
+        <section id="kontak">
+        <!-- bagian kontak -->
+            <h2>Kontak</h2>
+            <!-- judul bagian kontak -->
+
+            <address>
+                <!-- alamat pakai tag address biar bermakna -->
+                SMKN 1 Tangerango<br>
+                <!-- nama sekolah -->
+                Jl. Sirkaya No. 12, Tangerang, banten 53113<br>
+                <!-- alamat lengkap -->
+                Telepon: (0281) 634-221<br>
+                <!-- nomor telepon sekolah -->
+                Email: bulletin@smkn1Tangerang.sch.id
+                <!-- email redaksi bulletin -->
+            </address>
+            <!-- tutup alamat -->
+
+            <h3>Jam Layanan Redaksi</h3>
+            <!-- subjudul jam operasional -->
+            <p>
+            <!-- paragraf jam layanan -->
+                Senin&ndash;Jumat, 08.00&ndash;15.00 WIB. Di luar jam tersebut pesan akan dibalas
+                pada hari kerja berikutnya.
+            </p>
+            <!-- isi jam layanan -->
+
+            <h3>Kirim Berita atau Masukan</h3>
+            <!-- subjudul formulir -->
+            <form action="/kirim" method="post">
+                <!-- formulir pengiriman berita, method post -->
+                <label for="nama">Nama</label><br>
+                <!-- label untuk input nama -->
+                <input type="text" id="nama" name="nama" required><br>
+                <!-- input teks nama pengirim -->
+                <label for="kelas">Kelas / Instansi</label><br>
+                <!-- label untuk input kelas -->
+                <input type="text" id="kelas" name="kelas"><br>
+                <!-- input teks kelas, opsional -->
+                <label for="pesan">Pesan</label><br>
+                <!-- label untuk input pesan -->
+                <textarea id="pesan" name="pesan" rows="5" cols="40" required></textarea><br>
+                <!-- area teks isi pesan -->
+                <button type="submit">Kirim</button>
+                <!-- tombol kirim formulir -->
+            </form>
+            <!-- tutup form -->
+        </section>
+        <!-- tutup bagian kontak -->
+
+    </main>
+    <!-- tutup konten utama -->
+
+    <footer>
+    <!-- bagian bawah halaman -->
+        <p>&copy; 2026</p>
+        <!-- info hak cipta dan frekuensi terbit -->
+        <p>
+        <!-- tautan tambahan -->
+            Halaman lain: <a href="index.html">Beranda</a> &middot;
+            <!-- tautan ke beranda -->
+            <a href="profil.html">Profil</a> &middot;
+            <!-- tautan ke profil -->
+            <a href="kegiatan.html">Kegiatan</a>
+            <!-- tautan ke kegiatan -->
+        </p>
+        <!-- tutup paragraf tautan -->
+    </footer>
+    <!-- tutup footer -->
+
+</body>
+<!-- tutup body -->
+</html>
+<!-- tutup dokumen html -->
