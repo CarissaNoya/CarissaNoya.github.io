@@ -1,138 +1,285 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Website Yupi Sekolah</title>
-    </head>
 
-<style>
-/* ♡ EXTRA ROUND & BUBBLY SHAPES ♡ */
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Website Yupi Sekolah</title>
 
-/* Jarak antarbaris lebih lega */
-table {
-  border-spacing: 0 12px !important;
-}
+    <!-- FONT WEBSITE YUPI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* Header lebih rounded */
-table thead th:first-child {
-  border-radius: 24px 10px 10px 24px !important;
-}
+    <style>
+        /* WARNA DAN TAMPILAN UTAMA */
+        body {
+            background-color: #E5F2EF;
+            background-image: url("images/background.svg");
+            color: #73594B;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px 10px;
+        }
 
-table thead th:last-child {
-  border-radius: 10px 24px 24px 10px !important;
-}
+        /* TABEL UTAMA */
+        table {
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            border: 3px solid #76B9B2;
+            border-radius: 24px;
+            border-spacing: 0;
+            border-collapse: separate;
+            overflow: hidden;
+            background-color: #FFF9F5;
+            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
+        }
 
-/* Semua sel lebih lembut */
-table tbody td {
-  padding: 17px 18px !important;
-  border-top: 1px solid rgba(128,128,128,.12) !important;
-  border-bottom: 1px solid rgba(128,128,128,.12) !important;
-}
+        td {
+            padding: 18px;
+            border: 1px solid #E8D8D0;
+            overflow-wrap: anywhere;
+        }
 
-/* Ujung baris seperti pillowy cards */
-table tbody td:first-child {
-  border-radius: 24px 8px 8px 24px !important;
-  border-left: 1px solid rgba(128,128,128,.12) !important;
-}
+        /* HEADER WEBSITE */
+        tr:first-child td {
+            background-color: #76B9B2;
+            background-image: url("images/jaring-teal.svg");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 24px;
+            color: white;
+            border: none;
+        }
 
-table tbody td:last-child {
-  border-radius: 8px 24px 24px 8px !important;
-  border-right: 1px solid rgba(128,128,128,.12) !important;
-}
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: white;
+            margin: 10px 0;
+        }
 
-/* Baris genap: bentuk bubble asimetris */
-table tbody tr:nth-child(even) td:first-child {
-  border-radius: 12px 24px 24px 12px !important;
-}
+        tr:first-child p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
 
-table tbody tr:nth-child(even) td:last-child {
-  border-radius: 24px 12px 12px 24px !important;
-}
+        /* MENU NAVIGASI */
+        tr:nth-child(2) td {
+            background-color: #F6D5DE;
+            text-align: center;
+            padding: 16px;
+            border-left: none;
+            border-right: none;
+        }
 
-/* Hover makin bubbly */
-table tbody tr:hover {
-  transform: translateY(-4px) scale(1.008);
-}
+        a {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            color: #547F79;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
 
-table tbody tr:hover td:first-child {
-  border-radius: 28px 10px 10px 28px !important;
-}
+        a:hover {
+            color: #C76F8D;
+            text-decoration: underline;
+        }
 
-table tbody tr:hover td:last-child {
-  border-radius: 10px 28px 28px 10px !important;
-}
+        /* AREA KONTEN */
+        tr:nth-child(3) td {
+            background-color: #FFF9F5;
+            vertical-align: top;
+            line-height: 1.7;
+            transition: background-color 0.25s ease;
+        }
 
-/* Animasi halus */
-table tbody tr {
-  transition: transform .3s ease;
-}
+        tr:nth-child(3) td:hover {
+            background-color: #FFF1F3;
+        }
 
-/* Mobile */
-@media (max-width: 600px) {
-  table {
-    border-spacing: 0 8px !important;
-  }
+        tr:nth-child(3) td:first-child {
+            border-radius: 18px 8px 8px 18px;
+        }
 
-  table tbody td {
-    padding: 13px 11px !important;
-  }
+        tr:nth-child(3) td:last-child {
+            background-color: #E6F2EF;
+            border-radius: 8px 18px 18px 8px;
+        }
 
-  table tbody td:first-child {
-    border-radius: 18px 6px 6px 18px !important;
-  }
+        /* JUDUL */
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: #579D96;
+            line-height: 1.4;
+        }
 
-  table tbody td:last-child {
-    border-radius: 6px 18px 18px 6px !important;
-  }
+        h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: #579D96;
+        }
 
-  table tbody tr:hover {
-    transform: translateY(-2px);
-  }
-}
+        /* TEKS PARAGRAF */
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+        }
 
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  table tbody tr {
-    transition: none !important;
-  }
+        strong {
+            font-weight: 800;
+            color: #579D96;
+        }
 
-  table tbody tr:hover {
-    transform: none;
-  }
-}
-</style>
+        /* GARIS PEMISAH */
+        hr {
+            border: none;
+            border-top: 2px dashed #E8D8D0;
+            margin: 24px 0;
+        }
 
-   <body bgcolor="white" background="images/background.svg">
-    <!-- Halaman web tanpa CSS. Murni hanya memakai HTML -->
-    <p>&nbsp;</p>
-    <table border="1" width="800px" cellpadding="12px" align="center" bgcolor="white">
+        /* DAFTAR TAUTAN */
+        li {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        tr:last-child td {
+            background-color: #B99A83;
+            color: white;
+            text-align: right;
+            padding: 16px 20px;
+            border: none;
+        }
+
+        /* TAMPILAN MOBILE */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            table {
+                width: 100%;
+                font-size: 13px;
+                border-radius: 16px;
+            }
+
+            td {
+                padding: 10px;
+                overflow-wrap: anywhere;
+            }
+
+            tr:first-child td {
+                padding: 18px 10px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
+
+            tr:nth-child(3) td {
+                padding: 12px 9px;
+            }
+
+            tr:nth-child(3) td:first-child {
+                border-radius: 12px 6px 6px 12px;
+            }
+
+            tr:nth-child(3) td:last-child {
+                border-radius: 6px 12px 12px 6px;
+            }
+        }
+
+        /* AKSESIBILITAS: KURANGI ANIMASI */
+        @media (prefers-reduced-motion: reduce) {
+            td,
+            a {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <!-- HEADER -->
         <tr>
-            <td colspan="2" align="center" bgcolor="pink" background="images/jaring-teal.svg">
-                <font color="white">
-                    <p>&nbsp;</p>
-                    <h1>Website Yupi Sekolah</h1>
-                    <p><em>Di mana ada makanan, di situ kita kenyang dan pintar.</em></p>
-                    <p>&nbsp;</p>
-                </font>
-                </td>
-            </tr>
+            <td colspan="2">
+                <p>&nbsp;</p>
+                <h1>Website Yupi Sekolah</h1>
+                <p><em>Di mana ada makanan, di situ kita kenyang dan pintar.</em></p>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
 
-            <!-- MENU 4 HYPERLINK -->
-            <tr>
-                <td colspan="2" align="center" bgcolor=lightyellow>
-                    <a href="index.html">Beranda</a> | 
-                    <a href="Tentang saya.html">Tentang saya</a> |
-                    <a href="kegiatan.html">Kegiatan</a> |
-                    <a href="kontak.html">Kontak</a>
-                </td>
-            </tr>
+        <!-- MENU NAVIGASI -->
+        <tr>
+            <td colspan="2">
+                <a href="index.html">Beranda</a> |
+                <a href="Tentang saya.html">Tentang saya</a> |
+                <a href="kegiatan.html">Kegiatan</a> |
+                <a href="kontak.html">Kontak</a>
+            </td>
+        </tr>
 
-            <!-- ISI -->
-            <tr>
-                <td align="center" width="650" bgcolor="lightblue">
-                    <h2>Yuk Kontak Yupi Jika Tertarik !</h2>
-                    <p>
-                        Telp: 0858kapankapankitajalanjalan
-                    <p>Instagram : <a href="https://www.instagram.com/naninuneyoo_n/" target="_blank">
-                            @Naninuneyoo_n</a>
-            </p>
-                    <hr />
+        <!-- ISI HALAMAN KONTAK -->
+        <tr>
+            <td width="75%">
+                <h2>Yuk Kontak Yupi Jika Tertarik!</h2>
+
+                <p>
+                    <strong>Telepon:</strong>
+                    0858kapankapankitajalanjalan
+                </p>
+
+                <p>
+                    <strong>Instagram:</strong>
+                    <a href="https://www.instagram.com/naninuneyoo_n/" target="_blank" rel="noopener noreferrer">
+                        @Naninuneyoo_n
+                    </a>
+                </p>
+
+                <hr>
+                <p>Terima kasih sudah mengunjungi Website Yupi Sekolah! 🩷</p>
+            </td>
+
+            <!-- SIDEBAR TAUTAN EKSTERNAL -->
+            <td width="25%" valign="top">
+                <h3>Tautan Eksternal</h3>
+                <ol>
+                    <li><a href="https://www.mawan.net">Website Mawan</a></li>
+                    <li><a href="https://github.com">Github</a></li>
+                    <li><a href="https://wikipedia.org">Wikipedia</a></li>
+                    <li><a href="https://www.w3schools.com">W3Schools</a></li>
+                </ol>
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+            <td colspan="2">
+                © Copyright Noya Yupi, 2026.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
