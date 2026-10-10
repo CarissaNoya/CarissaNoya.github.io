@@ -1,141 +1,268 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Sekolahku</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolahku - Website Yupi Sekolah</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- FONT WEBSITE YUPI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* WARNA DAN TAMPILAN UTAMA */
+        body {
+            background-color: #E5F2EF;
+            background-image: url("images/background.svg");
+            color: #73594B;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px 10px;
+        }
+
+        /* TABEL UTAMA */
+        table {
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            border: 3px solid #76B9B2;
+            border-radius: 24px;
+            border-spacing: 0;
+            border-collapse: separate;
+            overflow: hidden;
+            background-color: #FFF9F5;
+            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
+        }
+
+        td {
+            padding: 18px;
+            border: 1px solid #E8D8D0;
+            overflow-wrap: anywhere;
+        }
+
+        /* HEADER WEBSITE */
+        tr:first-child td {
+            background-color: #76B9B2;
+            background-image: url("images/jaring-teal.svg");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 24px;
+            color: white;
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: white;
+            margin: 10px 0;
+        }
+
+        tr:first-child p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        /* MENU NAVIGASI */
+        tr:nth-child(2) td {
+            background-color: #F6D5DE;
+            text-align: center;
+            padding: 16px;
+            border-left: none;
+            border-right: none;
+        }
+
+        a {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            color: #547F79;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        a:hover {
+            color: #C76F8D;
+            text-decoration: underline;
+        }
+
+        /* AREA KONTEN */
+        tr:nth-child(3) td {
+            background-color: #FFF9F5;
+            vertical-align: top;
+            line-height: 1.7;
+            transition: background-color 0.25s ease;
+        }
+
+        tr:nth-child(3) td:hover {
+            background-color: #FFF1F3;
+        }
+
+        tr:nth-child(3) td:first-child {
+            border-radius: 18px 8px 8px 18px;
+        }
+
+        tr:nth-child(3) td:last-child {
+            background-color: #E6F2EF;
+            border-radius: 8px 18px 18px 8px;
+        }
+
+        /* JUDUL KONTEN */
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            color: #579D96;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            color: #579D96;
+        }
+
+        /* TEKS PARAGRAF */
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+        }
+
+        strong {
+            font-weight: 800;
+            color: #579D96;
+        }
+
+        /* DAFTAR TAUTAN */
+        li {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        tr:last-child td {
+            background-color: #B99A83;
+            color: white;
+            text-align: right;
+            padding: 16px 20px;
+            border: none;
+        }
+
+        /* TAMPILAN MOBILE */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            table {
+                width: 100%;
+                font-size: 13px;
+                border-radius: 16px;
+            }
+
+            td {
+                padding: 10px;
+                overflow-wrap: anywhere;
+            }
+
+            tr:first-child td {
+                padding: 18px 10px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
+
+            tr:nth-child(3) td {
+                padding: 12px 9px;
+            }
+
+            tr:nth-child(3) td:first-child {
+                border-radius: 12px 6px 6px 12px;
+            }
+
+            tr:nth-child(3) td:last-child {
+                border-radius: 6px 12px 12px 6px;
+            }
+        }
+
+        /* AKSESIBILITAS: KURANGI ANIMASI */
+        @media (prefers-reduced-motion: reduce) {
+            td,
+            a {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
-<style>
-/* ♡ EXTRA ROUND & BUBBLY SHAPES ♡ */
-
-/* Jarak antarbaris lebih lega */
-table {
-  border-spacing: 0 12px !important;
-}
-
-/* Header lebih rounded */
-table thead th:first-child {
-  border-radius: 24px 10px 10px 24px !important;
-}
-
-table thead th:last-child {
-  border-radius: 10px 24px 24px 10px !important;
-}
-
-/* Semua sel lebih lembut */
-table tbody td {
-  padding: 17px 18px !important;
-  border-top: 1px solid rgba(128,128,128,.12) !important;
-  border-bottom: 1px solid rgba(128,128,128,.12) !important;
-}
-
-/* Ujung baris seperti pillowy cards */
-table tbody td:first-child {
-  border-radius: 24px 8px 8px 24px !important;
-  border-left: 1px solid rgba(128,128,128,.12) !important;
-}
-
-table tbody td:last-child {
-  border-radius: 8px 24px 24px 8px !important;
-  border-right: 1px solid rgba(128,128,128,.12) !important;
-}
-
-/* Baris genap: bentuk bubble asimetris */
-table tbody tr:nth-child(even) td:first-child {
-  border-radius: 12px 24px 24px 12px !important;
-}
-
-table tbody tr:nth-child(even) td:last-child {
-  border-radius: 24px 12px 12px 24px !important;
-}
-
-/* Hover makin bubbly */
-table tbody tr:hover {
-  transform: translateY(-4px) scale(1.008);
-}
-
-table tbody tr:hover td:first-child {
-  border-radius: 28px 10px 10px 28px !important;
-}
-
-table tbody tr:hover td:last-child {
-  border-radius: 10px 28px 28px 10px !important;
-}
-
-/* Animasi halus */
-table tbody tr {
-  transition: transform .3s ease;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  table {
-    border-spacing: 0 8px !important;
-  }
-
-  table tbody td {
-    padding: 13px 11px !important;
-  }
-
-  table tbody td:first-child {
-    border-radius: 18px 6px 6px 18px !important;
-  }
-
-  table tbody td:last-child {
-    border-radius: 6px 18px 18px 6px !important;
-  }
-
-  table tbody tr:hover {
-    transform: translateY(-2px);
-  }
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  table tbody tr {
-    transition: none !important;
-  }
-
-  table tbody tr:hover {
-    transform: none;
-  }
-}
-</style>
-
-<body bgcolor="White" background="images/background.svg">
-    <!-- Halaman web tanpa CSS. Murni hanya memakai HTML -->
-    <p>&nbsp;</p>
-    <table border="1" width="800px" cellpadding="12px" align="center" bgcolor="white">
+<body>
+    <table>
+        <!-- HEADER -->
         <tr>
-            <td colspan="2" align="center" bgcolor="pink" background="images/jaring-teal.svg">
-                <font color="white">
-                    <p>&nbsp;</p>
-                    <h1>Website Yupi sekolah</h1>
-                    <p><em>Di mana ada makanan, di situ kita kenyang dan pintar.</em></p>
-                    <p>&nbsp;</p>
-                </font>
-            </td>            
+            <td colspan="2">
+                <p>&nbsp;</p>
+                <h1>Website Yupi sekolah</h1>
+                <p><em>Di mana ada makanan, di situ kita kenyang dan pintar.</em></p>
+                <p>&nbsp;</p>
+            </td>
         </tr>
-          <tr>
-            <td colspan="2" align="center" bgcolor="lightyellow">
+
+        <!-- MENU NAVIGASI -->
+        <tr>
+            <td colspan="2">
                 <a href="index.html">Beranda</a> |
                 <a href="Tentang saya.html">Tentang Saya</a> |
                 <a href="kegiatan.html">Kegiatan</a> |
                 <a href="kontak.html">Kontak</a>
             </td>
         </tr>
+
+        <!-- KONTEN UTAMA DAN SIDEBAR -->
         <tr>
-          <td bgcolor="lightblue">
-            <ol>
-              <h2>Fanmeet Mingyu x Dior di Plaza Senayan Jakarta</h2>
-                <p> Menghadiri acara Dior yang berlangsung di Plaza Senayan, Jakarta, pada 14 Agustus 2026. Dalam kegiatan tersebut, saya menyaksikan kehadiran Mingyu SEVENTEEN sebagai tamu spesial sekaligus menikmati suasana pop-up Dior yang menampilkan koleksi Autumn/Winter 2026–2027. Saya juga melihat berbagai instalasi dengan konsep taman Paris yang terinspirasi dari Jardin des Tuileries.
-</p>
-            </ol>
-            
-          </td>
+            <td width="75%">
+                <h2>Fanmeet Mingyu x Dior di Plaza Senayan Jakarta</h2>
+
+                <p>
+                    Menghadiri acara Dior yang berlangsung di Plaza Senayan, Jakarta, pada 14 Agustus 2026. Dalam kegiatan tersebut, saya menyaksikan kehadiran Mingyu SEVENTEEN sebagai tamu spesial sekaligus menikmati suasana pop-up Dior yang menampilkan koleksi Autumn/Winter 2026–2027. Saya juga melihat berbagai instalasi dengan konsep taman Paris yang terinspirasi dari Jardin des Tuileries.
+                </p>
+            </td>
+
+            <!-- TAUTAN EKSTERNAL -->
+            <td width="25%" valign="top">
+                <h3>Tautan Eksternal</h3>
+                <ol>
+                    <li><a href="https://www.mawan.or.id">Website Mawan</a></li>
+                    <li><a href="https://www.github.com">Github</a></li>
+                    <li><a href="https://www.wikipedia.org">Wikipedia</a></li>
+                    <li><a href="https://www.w3schools.com">W3Schools</a></li>
+                </ol>
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+            <td colspan="2">
+                © Copyright Noya Yupi, 2026.
+            </td>
         </tr>
     </table>
-    <p>&nbsp;</p>
 </body>
-
 </html>
+
