@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -7,241 +7,237 @@
     <title>Tentang Saya - Website Yupi Sekolah</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <style>
-        /* PALET WARNA TEAL, COKELAT PASTEL, DAN PINK */
-
-        body {
-            background-color: #E5F2EF;
-            font-family: Arial, sans-serif;
-            color: #73594B;
-            margin: 0;
-            padding: 30px 10px;
-        }
-
-        /* TABEL UTAMA */
-
-        table {
-            width: 900px;
-            max-width: 100%;
-            margin: auto;
-            border: 3px solid #76B9B2;
-            border-spacing: 0;
-            border-collapse: separate;
-            border-radius: 24px;
-            overflow: hidden;
-            background-color: #FFF9F5;
-            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
-        }
-
-        /* SEMUA SEL */
-
-        td {
-            padding: 18px;
-            border: 1px solid #E8D8D0;
-            transition: background-color 0.3s ease;
-        }
-
-        /* HEADER */
-
-        tr:first-child td {
-            background-color: #76B9B2;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 24px;
-            background-image: url("images/jaring-teal.svg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        h1 {
-            color: #FFFFFF;
-            margin-bottom: 12px;
-        }
-
-        h3 {
-            color: #579D96;
-        }
-
-        /* MENU NAVIGASI */
-
-        tr:nth-child(2) td {
-            background-color: #F6D5DE;
-            text-align: center;
-            padding: 16px;
-        }
-
-        a {
-            color: #547F79;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #C76F8D;
-            text-decoration: underline;
-        }
-
-        /* AREA KONTEN */
-
-        tr:nth-child(3) td {
-            background-color: #FFF9F5;
-            vertical-align: top;
-            line-height: 1.7;
-        }
-
-        tr:nth-child(3) td:hover {
-            background-color: #FFF1F3;
-        }
-
-        /* SIDEBAR */
-
-        tr:nth-child(3) td:last-child {
-            background-color: #E6F2EF;
-        }
-
-        tr:nth-child(3) td:last-child p {
-            color: #579D96;
-            font-weight: bold;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        /* FOOTER */
-
-        tr:last-child td {
-            background-color: #B99A83;
-            color: #FFFFFF;
-            text-align: right;
-        }
-
-        /* EFEK ROUNDED DAN BUBBLY */
-
-        table {
-            border-radius: 24px;
-        }
-
-        tr:nth-child(3) td:first-child {
-            border-radius: 18px 8px 8px 18px;
-        }
-
-        tr:nth-child(3) td:last-child {
-            border-radius: 8px 18px 18px 8px;
-        }
-
-        /* TRANSISI HALUS */
-
-        td {
-            transition: background-color 0.3s ease;
-        }
-
-        /* RESPONSIVE UNTUK HP */
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px 5px;
-            }
-
-            table {
-                width: 100%;
-                font-size: 13px;
-                border-radius: 16px;
-            }
-
-            td {
-                padding: 10px;
-                overflow-wrap: anywhere;
-            }
-
-            h1 {
-                font-size: 22px;
-            }
-
-            h3 {
-                font-size: 17px;
-            }
-
-            tr:nth-child(3) td {
-                padding: 12px 9px;
-            }
-        }
-
-        /* MENGURANGI ANIMASI JIKA DIPERLUKAN */
-
-        @media (prefers-reduced-motion: reduce) {
-            td,
-            a {
-                transition: none;
-            }
-        }
-        
-        ```html
-<!-- Letakkan di dalam <head>, sebelum <style> -->
+```
+<!-- GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    /* PALET WARNA TEAL, COKELAT PASTEL, DAN PINK */
+
+    body {
+        background-color: #E5F2EF;
+        background-image: url("images/background.svg");
+        color: #73594B;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 400;
+        line-height: 1.8;
+        margin: 0;
+        padding: 20px 10px;
+    }
+
+    /* TABEL UTAMA */
+
+    table {
+        width: 900px;
+        max-width: 100%;
+        margin: auto;
+        border: 3px solid #76B9B2;
+        border-spacing: 0;
+        border-collapse: separate;
+        border-radius: 24px;
+        overflow: hidden;
+        background-color: #FFF9F5;
+        box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
+    }
+
+    /* SEMUA SEL */
+
+    td {
+        padding: 18px;
+        border: 1px solid #E8D8D0;
+        overflow-wrap: anywhere;
+        transition: background-color 0.3s ease;
+    }
+
+    /* HEADER WEBSITE */
+
+    tr:first-child td {
+        background-color: #76B9B2;
+        background-image: url("images/jaring-teal.svg");
+        background-size: cover;
+        background-position: center;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 24px;
+        border: none;
+    }
+
+    h1 {
+        color: #FFFFFF;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+
+    tr:first-child p {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+    }
+
+    /* JUDUL DAN SUBJUDUL */
+
+    h2,
+    h3 {
+        color: #579D96;
+        font-family: 'Fredoka', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    h3 {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    /* MENU NAVIGASI */
+
+    tr:nth-child(2) td {
+        background-color: #F6D5DE;
+        text-align: center;
+        padding: 16px;
+    }
+
+    a {
+        color: #547F79;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #C76F8D;
+        text-decoration: underline;
+    }
+
+    /* AREA KONTEN */
+
+    tr:nth-child(3) td {
+        background-color: #FFF9F5;
+        vertical-align: top;
+        line-height: 1.7;
+    }
+
+    tr:nth-child(3) td:hover {
+        background-color: #FFF1F3;
+    }
+
+    tr:nth-child(3) td:first-child {
+        border-radius: 18px 8px 8px 18px;
+    }
+
+    /* SIDEBAR */
+
+    tr:nth-child(3) td:last-child {
+        background-color: #E6F2EF;
+        border-radius: 8px 18px 18px 8px;
+    }
+
+    tr:nth-child(3) td:last-child p {
+        color: #579D96;
+        font-weight: 800;
+    }
+
+    /* TEKS DAN DAFTAR */
+
+    p {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 400;
+    }
+
+    strong {
+        color: #579D96;
+        font-weight: 800;
+    }
+
+    li {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    /* FOOTER */
+
+    tr:last-child td {
+        background-color: #B99A83;
+        color: #FFFFFF;
+        text-align: right;
+        padding: 16px 20px;
+        border: none;
+    }
+
+    /* RESPONSIVE UNTUK HP */
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px 5px;
+        }
+
+        table {
+            width: 100%;
+            font-size: 13px;
+            border-radius: 16px;
+        }
+
+        td {
+            padding: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        tr:first-child td {
+            padding: 18px 10px;
+        }
+
+        h1 {
+            font-size: 22px;
+        }
+
+        h2 {
+            font-size: 19px;
+        }
+
+        h3 {
+            font-size: 17px;
+        }
+
+        tr:nth-child(3) td {
+            padding: 12px 9px;
+        }
+
+        tr:nth-child(3) td:first-child {
+            border-radius: 12px 6px 6px 12px;
+        }
+
+        tr:nth-child(3) td:last-child {
+            border-radius: 6px 12px 12px 6px;
+        }
+    }
+
+    /* MENGURANGI ANIMASI JIKA DIPERLUKAN */
+
+    @media (prefers-reduced-motion: reduce) {
+        td,
+        a {
+            transition: none;
+        }
+    }
+</style>
 ```
 
-```css
-/* FONT UTAMA */
-body {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    line-height: 1.8;
-}
-
-/* JUDUL UTAMA WEBSITE */
-h1 {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-/* SUBJUDUL */
-h3 {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
-
-/* TEKS PARAGRAF */
-p {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-}
-
-/* TEKS TEBAL */
-strong {
-    font-weight: 800;
-    color: #579D96;
-}
-
-/* MENU NAVIGASI */
-a {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-}
-
-/* DAFTAR TAUTAN */
-li {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
-}
-
-/* SLOGAN DI HEADER */
-tr:first-child p {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
-}
-```
-
-    </style>
 </head>
 
 <body>
-    <table border="1" align="center">
+    <table>
         <!-- HEADER WEBSITE -->
         <tr>
             <td colspan="2">
@@ -252,69 +248,71 @@ tr:first-child p {
             </td>
         </tr>
 
-        <!-- MENU NAVIGASI -->
-        <tr>
-            <td colspan="2">
-                <a href="index.html">Beranda</a> |
-                <a href="Tentang saya.html">Tentang Saya</a> |
-                <a href="kegiatan.html">Kegiatan</a> |
-                <a href="kontak.html">Kontak</a>
-            </td>
-        </tr>
+```
+    <!-- MENU NAVIGASI -->
+    <tr>
+        <td colspan="2">
+            <a href="index.html">Beranda</a> |
+            <a href="Tentang saya.html">Tentang Saya</a> |
+            <a href="kegiatan.html">Kegiatan</a> |
+            <a href="kontak.html">Kontak</a>
+        </td>
+    </tr>
 
-        <!-- KONTEN UTAMA DAN SIDEBAR -->
-        <tr>
-            <td width="75%">
-                <h3 align="center">Tentang Saya</h3>
+    <!-- KONTEN UTAMA DAN SIDEBAR -->
+    <tr>
+        <td width="75%">
+            <h3 style="text-align: center;">Tentang Saya</h3>
 
-                <p align="right">
-                    <small><em>Minggu, 26 September 2026</em></small>
-                </p>
+            <p style="text-align: right;">
+                <small><em>Minggu, 26 September 2026</em></small>
+            </p>
 
-                <p>
-                    Nama saya Carissa Shabnam Noya, bisa panggil saya Noya,
-                    dan saya suka Yupi! Saya lahir pada tanggal 9 July 2009.
-                    Saya bersekolah di SMKN 1 Tangerang, kelas XI DKV 2.
-                </p>
+            <p>
+                Nama saya Carissa Shabnam Noya, bisa panggil saya Noya,
+                dan saya suka Yupi! Saya lahir pada tanggal 9 July 2009.
+                Saya bersekolah di SMKN 1 Tangerang, kelas XI DKV 2.
+            </p>
 
-                <p><strong>Hobi</strong></p>
+            <p><strong>Hobi</strong></p>
 
-                <p>
-                    Saya memiliki hobi menggambar, journaling, menulis puisi,
-                    dan menulis kata-kata yang sebenarnya sepele tetapi bisa
-                    diserapi lebih dalam. Saya juga suka grup K-pop Seventeen!
-                    Bias saya Jeonghan dan Joshua.
-                </p>
-            </td>
+            <p>
+                Saya memiliki hobi menggambar, journaling, menulis puisi,
+                dan menulis kata-kata yang sebenarnya sepele tetapi bisa
+                diserapi lebih dalam. Saya juga suka grup K-pop Seventeen!
+                Bias saya Jeonghan dan Joshua.
+            </p>
+        </td>
 
-            <!-- SIDEBAR -->
-            <td width="25%" valign="top">
-                <p>Tautan Eksternal</p>
+        <!-- SIDEBAR -->
+        <td width="25%" valign="top">
+            <p>Tautan Eksternal</p>
 
-                <ol>
-                    <li>
-                        <a href="https://www.mawan.or.id">Website Mawan</a>
-                    </li>
-                    <li>
-                        <a href="https://www.github.com">Github</a>
-                    </li>
-                    <li>
-                        <a href="https://www.wikipedia.org">Wikipedia</a>
-                    </li>
-                    <li>
-                        <a href="https://www.w3schools.com">W3Schools</a>
-                    </li>
-                </ol>
-            </td>
-        </tr>
+            <ol>
+                <li>
+                    <a href="https://www.mawan.or.id">Website Mawan</a>
+                </li>
+                <li>
+                    <a href="https://www.github.com">Github</a>
+                </li>
+                <li>
+                    <a href="https://www.wikipedia.org">Wikipedia</a>
+                </li>
+                <li>
+                    <a href="https://www.w3schools.com">W3Schools</a>
+                </li>
+            </ol>
+        </td>
+    </tr>
 
-        <!-- FOOTER -->
-        <tr>
-            <td colspan="2">
-                <small>&copy; Copyright Noya Yupi, 2026.</small>
-            </td>
-        </tr>
-    </table>
+    <!-- FOOTER -->
+    <tr>
+        <td colspan="2">
+            <small>&copy; Copyright Noya Yupi, 2026.</small>
+        </td>
+    </tr>
+</table>
+```
+
 </body>
 </html>
-
