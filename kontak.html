@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* WARNA DAN TAMPILAN UTAMA */
+        /* TAMPILAN UTAMA */
         body {
             background-color: #E5F2EF;
             background-image: url("images/background.svg");
@@ -22,6 +22,25 @@
             line-height: 1.8;
             margin: 0;
             padding: 20px 10px;
+            animation: pageAppear 0.65s ease both;
+        }
+
+        @keyframes pageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pageDisappear {
+            to {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
         }
 
         /* TABEL UTAMA */
@@ -30,9 +49,9 @@
             max-width: 100%;
             margin: 0 auto;
             border: 3px solid #76B9B2;
-            border-radius: 24px;
             border-spacing: 0;
             border-collapse: separate;
+            border-radius: 24px;
             overflow: hidden;
             background-color: #FFF9F5;
             box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
@@ -42,6 +61,7 @@
             padding: 18px;
             border: 1px solid #E8D8D0;
             overflow-wrap: anywhere;
+            transition: background-color 0.3s ease, border-radius 0.3s ease;
         }
 
         /* HEADER WEBSITE */
@@ -50,18 +70,20 @@
             background-image: url("images/jaring-teal.svg");
             background-size: cover;
             background-position: center;
+            color: #FFF;
             text-align: center;
             padding: 24px;
-            color: white;
             border: none;
         }
 
         h1 {
+            color: #FFF;
             font-family: 'Fredoka', sans-serif;
+            font-size: 32px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            color: white;
-            margin: 10px 0;
+            margin-top: 0;
+            margin-bottom: 12px;
         }
 
         tr:first-child p {
@@ -74,29 +96,62 @@
             background-color: #F6D5DE;
             text-align: center;
             padding: 16px;
-            border-left: none;
-            border-right: none;
         }
 
         a {
+            display: inline-block;
+            position: relative;
+            color: #547F79;
             font-family: 'Nunito', sans-serif;
             font-weight: 800;
-            color: #547F79;
             text-decoration: none;
-            transition: color 0.25s ease;
+            transition:
+                color 0.25s ease,
+                transform 0.25s cubic-bezier(0.2, 1.5, 0.5, 1),
+                text-shadow 0.25s ease;
         }
 
         a:hover {
             color: #C76F8D;
             text-decoration: underline;
+            transform: translateY(-2px) scale(1.04);
+            text-shadow: 0 3px 10px rgba(199, 111, 141, 0.18);
         }
 
-        /* AREA KONTEN */
+        a:active {
+            transform: scale(0.91);
+            transition-duration: 0.1s;
+        }
+
+        tr:nth-child(2) a {
+            padding: 5px 8px;
+            border-radius: 12px;
+        }
+
+        tr:nth-child(2) a:hover {
+            background-color: rgba(255, 249, 245, 0.75);
+            text-decoration: none;
+            animation: cuteBounce 0.4s ease;
+        }
+
+        @keyframes cuteBounce {
+            0%, 100% {
+                transform: translateY(0) scale(1.04);
+            }
+            35% {
+                transform: translateY(-5px) scale(1.08);
+            }
+            65% {
+                transform: translateY(1px) scale(0.98);
+            }
+        }
+
+        /* AREA KONTEN DAN SIDEBAR */
         tr:nth-child(3) td {
             background-color: #FFF9F5;
             vertical-align: top;
             line-height: 1.7;
-            transition: background-color 0.25s ease;
+            transition: background-color 0.3s ease, border-radius 0.3s ease;
         }
 
         tr:nth-child(3) td:hover {
@@ -112,20 +167,28 @@
             border-radius: 8px 18px 18px 8px;
         }
 
+        tr:nth-child(3) td:last-child p {
+            color: #579D96;
+            font-weight: 800;
+        }
+
         /* JUDUL */
         h2 {
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.3px;
             color: #579D96;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
             line-height: 1.4;
         }
 
         h3 {
+            color: #579D96;
             font-family: 'Fredoka', sans-serif;
+            font-size: 21px;
             font-weight: 600;
             letter-spacing: 0.3px;
-            color: #579D96;
+            line-height: 1.4;
         }
 
         /* TEKS PARAGRAF */
@@ -135,8 +198,8 @@
         }
 
         strong {
-            font-weight: 800;
             color: #579D96;
+            font-weight: 800;
         }
 
         /* GARIS PEMISAH */
@@ -153,10 +216,43 @@
             margin-bottom: 8px;
         }
 
+        /* EFEK SPARKLE SAAT LINK DIKLIK */
+        .click-sparkle {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            font-size: 18px;
+            line-height: 1;
+            animation: sparkleFly 0.65s ease-out forwards;
+        }
+
+        @keyframes sparkleFly {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform:
+                    translate(
+                        calc(-50% + var(--move-x)),
+                        calc(-50% + var(--move-y))
+                    )
+                    scale(1.4)
+                    rotate(100deg);
+            }
+        }
+
+        /* TRANSISI SAAT PINDAH HALAMAN */
+        body.page-leaving {
+            animation: pageDisappear 0.32s ease forwards;
+            pointer-events: none;
+        }
+
         /* FOOTER */
         tr:last-child td {
             background-color: #B99A83;
-            color: white;
+            color: #FFF;
             text-align: right;
             padding: 16px 20px;
             border: none;
@@ -195,6 +291,14 @@
                 font-size: 17px;
             }
 
+            tr:nth-child(2) td {
+                padding: 10px 4px;
+            }
+
+            tr:nth-child(2) a {
+                padding: 4px;
+            }
+
             tr:nth-child(3) td {
                 padding: 12px 9px;
             }
@@ -210,9 +314,21 @@
 
         /* AKSESIBILITAS: KURANGI ANIMASI */
         @media (prefers-reduced-motion: reduce) {
-            td,
-            a {
+            body,
+            body.page-leaving {
+                animation: none;
+            }
+
+            a,
+            a:hover,
+            a:active {
+                animation: none;
                 transition: none;
+                transform: none;
+            }
+
+            .click-sparkle {
+                display: none;
             }
         }
     </style>
@@ -258,6 +374,7 @@
                 </p>
 
                 <hr>
+
                 <p>Terima kasih sudah mengunjungi Website Yupi Sekolah! 🩷</p>
             </td>
 
@@ -280,6 +397,90 @@
             </td>
         </tr>
     </table>
+
+    <!-- JAVASCRIPT ANIMASI KLIK -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const reducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+            function createSparkles(x, y) {
+                if (reducedMotion) return;
+
+                const symbols = ["✦", "✧", "♡", "✦", "⋆"];
+                const colors = [
+                    "#E99AB2",
+                    "#76B9B2",
+                    "#C4A0D8",
+                    "#D9AA73"
+                ];
+
+                for (let i = 0; i < 5; i++) {
+                    const sparkle = document.createElement("span");
+
+                    sparkle.className = "click-sparkle";
+                    sparkle.textContent =
+                        symbols[Math.floor(Math.random() * symbols.length)];
+
+                    sparkle.style.left = x + "px";
+                    sparkle.style.top = y + "px";
+                    sparkle.style.color = colors[i % colors.length];
+
+                    sparkle.style.setProperty(
+                        "--move-x",
+                        (Math.random() - 0.5) * 100 + "px"
+                    );
+
+                    sparkle.style.setProperty(
+                        "--move-y",
+                        (Math.random() - 0.5) * 100 + "px"
+                    );
+
+                    document.body.appendChild(sparkle);
+
+                    sparkle.addEventListener(
+                        "animationend",
+                        () => sparkle.remove(),
+                        { once: true }
+                    );
+                }
+            }
+
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", event => {
+                    const href = link.getAttribute("href");
+
+                    const shouldNotNavigate =
+                        !href ||
+                        href.startsWith("#") ||
+                        href.startsWith("javascript:") ||
+                        link.hasAttribute("download") ||
+                        link.target === "_blank" ||
+                        event.ctrlKey ||
+                        event.metaKey ||
+                        event.shiftKey ||
+                        event.altKey ||
+                        event.button !== 0;
+
+                    createSparkles(event.clientX, event.clientY);
+
+                    if (shouldNotNavigate || reducedMotion) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    const destination = link.href;
+
+                    document.body.classList.add("page-leaving");
+
+                    setTimeout(() => {
+                        window.location.href = destination;
+                    }, 300);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
