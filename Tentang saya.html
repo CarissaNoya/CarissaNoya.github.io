@@ -1,318 +1,626 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tentang Saya - Website Yupi Sekolah</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-```
-<!-- GOOGLE FONTS -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-    /* PALET WARNA TEAL, COKELAT PASTEL, DAN PINK */
+    <style>
+        /* =========================================
+           PALET WARNA WEBSITE YUPI
+           ========================================= */
 
-    body {
-        background-color: #E5F2EF;
-        background-image: url("images/background.svg");
-        color: #73594B;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 400;
-        line-height: 1.8;
-        margin: 0;
-        padding: 20px 10px;
-    }
-
-    /* TABEL UTAMA */
-
-    table {
-        width: 900px;
-        max-width: 100%;
-        margin: auto;
-        border: 3px solid #76B9B2;
-        border-spacing: 0;
-        border-collapse: separate;
-        border-radius: 24px;
-        overflow: hidden;
-        background-color: #FFF9F5;
-        box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
-    }
-
-    /* SEMUA SEL */
-
-    td {
-        padding: 18px;
-        border: 1px solid #E8D8D0;
-        overflow-wrap: anywhere;
-        transition: background-color 0.3s ease;
-    }
-
-    /* HEADER WEBSITE */
-
-    tr:first-child td {
-        background-color: #76B9B2;
-        background-image: url("images/jaring-teal.svg");
-        background-size: cover;
-        background-position: center;
-        color: #FFFFFF;
-        text-align: center;
-        padding: 24px;
-        border: none;
-    }
-
-    h1 {
-        color: #FFFFFF;
-        font-family: 'Fredoka', sans-serif;
-        font-size: 32px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        margin-top: 0;
-        margin-bottom: 12px;
-    }
-
-    tr:first-child p {
-        font-family: 'Nunito', sans-serif;
-        font-weight: 600;
-    }
-
-    /* JUDUL DAN SUBJUDUL */
-
-    h2,
-    h3 {
-        color: #579D96;
-        font-family: 'Fredoka', sans-serif;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-    }
-
-    h2 {
-        font-size: 24px;
-        line-height: 1.4;
-    }
-
-    h3 {
-        font-size: 21px;
-        line-height: 1.4;
-    }
-
-    /* MENU NAVIGASI */
-
-    tr:nth-child(2) td {
-        background-color: #F6D5DE;
-        text-align: center;
-        padding: 16px;
-    }
-
-    a {
-        color: #547F79;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 800;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    a:hover {
-        color: #C76F8D;
-        text-decoration: underline;
-    }
-
-    /* AREA KONTEN */
-
-    tr:nth-child(3) td {
-        background-color: #FFF9F5;
-        vertical-align: top;
-        line-height: 1.7;
-    }
-
-    tr:nth-child(3) td:hover {
-        background-color: #FFF1F3;
-    }
-
-    tr:nth-child(3) td:first-child {
-        border-radius: 18px 8px 8px 18px;
-    }
-
-    /* SIDEBAR */
-
-    tr:nth-child(3) td:last-child {
-        background-color: #E6F2EF;
-        border-radius: 8px 18px 18px 8px;
-    }
-
-    tr:nth-child(3) td:last-child p {
-        color: #579D96;
-        font-weight: 800;
-    }
-
-    /* TEKS DAN DAFTAR */
-
-    p {
-        font-family: 'Nunito', sans-serif;
-        font-weight: 400;
-    }
-
-    strong {
-        color: #579D96;
-        font-weight: 800;
-    }
-
-    li {
-        font-family: 'Nunito', sans-serif;
-        font-weight: 500;
-        margin-bottom: 8px;
-    }
-
-    /* FOOTER */
-
-    tr:last-child td {
-        background-color: #B99A83;
-        color: #FFFFFF;
-        text-align: right;
-        padding: 16px 20px;
-        border: none;
-    }
-
-    /* RESPONSIVE UNTUK HP */
-
-    @media (max-width: 600px) {
         body {
-            padding: 10px 5px;
+            background-color: #E5F2EF;
+            background-image: url("images/background.svg");
+            color: #73594B;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px 10px;
+
+            /* Animasi masuk halaman */
+            animation: pageAppear 0.65s ease both;
         }
+
+        /* =========================================
+           ANIMASI HALAMAN
+           ========================================= */
+
+        @keyframes pageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pageDisappear {
+            to {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+        }
+
+        /* =========================================
+           TABEL UTAMA
+           ========================================= */
 
         table {
-            width: 100%;
-            font-size: 13px;
-            border-radius: 16px;
+            width: 900px;
+            max-width: 100%;
+            margin: auto;
+
+            border: 3px solid #76B9B2;
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 24px;
+            overflow: hidden;
+
+            background-color: #FFF9F5;
+            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
         }
+
+        /* =========================================
+           SEMUA SEL
+           ========================================= */
 
         td {
-            padding: 10px;
+            padding: 18px;
+            border: 1px solid #E8D8D0;
             overflow-wrap: anywhere;
+
+            transition:
+                background-color 0.3s ease,
+                border-radius 0.3s ease;
         }
 
+        /* =========================================
+           HEADER WEBSITE
+           ========================================= */
+
         tr:first-child td {
-            padding: 18px 10px;
+            background-color: #76B9B2;
+            background-image: url("images/jaring-teal.svg");
+            background-size: cover;
+            background-position: center;
+
+            color: #FFFFFF;
+            text-align: center;
+            padding: 24px;
+            border: none;
         }
 
         h1 {
-            font-size: 22px;
+            color: #FFFFFF;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        tr:first-child p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           JUDUL DAN SUBJUDUL
+           ========================================= */
+
+        h2,
+        h3 {
+            color: #579D96;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         h2 {
-            font-size: 19px;
+            font-size: 24px;
+            line-height: 1.4;
         }
 
         h3 {
-            font-size: 17px;
+            font-size: 21px;
+            line-height: 1.4;
         }
 
+        /* =========================================
+           MENU NAVIGASI
+           ========================================= */
+
+        tr:nth-child(2) td {
+            background-color: #F6D5DE;
+            text-align: center;
+            padding: 16px;
+        }
+
+        a {
+            display: inline-block;
+            position: relative;
+
+            color: #547F79;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s cubic-bezier(.2, 1.5, .5, 1),
+                text-shadow 0.25s ease;
+        }
+
+        a:hover {
+            color: #C76F8D;
+            text-decoration: underline;
+            transform: translateY(-2px) scale(1.04);
+
+            text-shadow:
+                0 3px 10px rgba(199, 111, 141, 0.18);
+        }
+
+        a:active {
+            transform: scale(0.91);
+            transition-duration: 0.1s;
+        }
+
+        /* Animasi memantul khusus menu */
+
+        tr:nth-child(2) a {
+            padding: 5px 8px;
+            border-radius: 12px;
+        }
+
+        tr:nth-child(2) a:hover {
+            background-color: rgba(255, 249, 245, 0.75);
+            text-decoration: none;
+            animation: cuteBounce 0.4s ease;
+        }
+
+        @keyframes cuteBounce {
+            0%, 100% {
+                transform: translateY(0) scale(1.04);
+            }
+
+            35% {
+                transform: translateY(-5px) scale(1.08);
+            }
+
+            65% {
+                transform: translateY(1px) scale(0.98);
+            }
+        }
+
+        /* =========================================
+           AREA KONTEN
+           ========================================= */
+
         tr:nth-child(3) td {
-            padding: 12px 9px;
+            background-color: #FFF9F5;
+            vertical-align: top;
+            line-height: 1.7;
+
+            transition:
+                background-color 0.3s ease,
+                border-radius 0.3s ease;
+        }
+
+        tr:nth-child(3) td:hover {
+            background-color: #FFF1F3;
         }
 
         tr:nth-child(3) td:first-child {
-            border-radius: 12px 6px 6px 12px;
+            border-radius: 18px 8px 8px 18px;
         }
+
+        /* =========================================
+           SIDEBAR
+           ========================================= */
 
         tr:nth-child(3) td:last-child {
-            border-radius: 6px 12px 12px 6px;
+            background-color: #E6F2EF;
+            border-radius: 8px 18px 18px 8px;
         }
-    }
 
-    /* MENGURANGI ANIMASI JIKA DIPERLUKAN */
-
-    @media (prefers-reduced-motion: reduce) {
-        td,
-        a {
-            transition: none;
+        tr:nth-child(3) td:last-child p {
+            color: #579D96;
+            font-weight: 800;
         }
-    }
-</style>
-```
 
+        /* =========================================
+           TEKS DAN DAFTAR
+           ========================================= */
+
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+        }
+
+        strong {
+            color: #579D96;
+            font-weight: 800;
+        }
+
+        li {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        /* =========================================
+           EFEK SPARKLE SAAT DIKLIK
+           ========================================= */
+
+        .click-sparkle {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+
+            font-size: 18px;
+            line-height: 1;
+
+            animation: sparkleFly 0.65s ease-out forwards;
+        }
+
+        @keyframes sparkleFly {
+            0% {
+                opacity: 1;
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.4)
+                    rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translate(
+                        calc(-50% + var(--move-x)),
+                        calc(-50% + var(--move-y))
+                    )
+                    scale(1.4)
+                    rotate(100deg);
+            }
+        }
+
+        /* =========================================
+           TRANSISI SEBELUM PINDAH HALAMAN
+           ========================================= */
+
+        body.page-leaving {
+            animation: pageDisappear 0.32s ease forwards;
+            pointer-events: none;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+
+        tr:last-child td {
+            background-color: #B99A83;
+            color: #FFFFFF;
+            text-align: right;
+            padding: 16px 20px;
+            border: none;
+        }
+
+        /* =========================================
+           RESPONSIVE UNTUK HP
+           ========================================= */
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            table {
+                width: 100%;
+                font-size: 13px;
+                border-radius: 16px;
+            }
+
+            td {
+                padding: 10px;
+                overflow-wrap: anywhere;
+            }
+
+            tr:first-child td {
+                padding: 18px 10px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+
+            h3 {
+                font-size: 17px;
+            }
+
+            tr:nth-child(2) td {
+                padding: 10px 4px;
+            }
+
+            tr:nth-child(2) a {
+                padding: 4px;
+            }
+
+            tr:nth-child(3) td {
+                padding: 12px 9px;
+            }
+
+            tr:nth-child(3) td:first-child {
+                border-radius: 12px 6px 6px 12px;
+            }
+
+            tr:nth-child(3) td:last-child {
+                border-radius: 6px 12px 12px 6px;
+            }
+        }
+
+        /* =========================================
+           AKSESIBILITAS
+           ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            body,
+            body.page-leaving {
+                animation: none;
+            }
+
+            a,
+            a:hover,
+            a:active {
+                animation: none;
+                transition: none;
+                transform: none;
+            }
+
+            .click-sparkle {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
     <table>
+
         <!-- HEADER WEBSITE -->
         <tr>
             <td colspan="2">
                 <h1>Website Yupi Sekolah</h1>
+
                 <p>
-                    <em>Di mana ada makanan, di situ kita kenyang dan pintar.</em>
+                    <em>
+                        Di mana ada makanan, di situ kita kenyang dan pintar.
+                    </em>
                 </p>
             </td>
         </tr>
 
-```
-    <!-- MENU NAVIGASI -->
-    <tr>
-        <td colspan="2">
-            <a href="index.html">Beranda</a> |
-            <a href="Tentang saya.html">Tentang Saya</a> |
-            <a href="kegiatan.html">Kegiatan</a> |
-            <a href="kontak.html">Kontak</a>
-        </td>
-    </tr>
+        <!-- MENU NAVIGASI -->
+        <tr>
+            <td colspan="2">
+                <a href="index.html">Beranda</a> |
+                <a href="Tentang saya.html">Tentang Saya</a> |
+                <a href="kegiatan.html">Kegiatan</a> |
+                <a href="kontak.html">Kontak</a>
+            </td>
+        </tr>
 
-    <!-- KONTEN UTAMA DAN SIDEBAR -->
-    <tr>
-        <td width="75%">
-            <h3 style="text-align: center;">Tentang Saya</h3>
+        <!-- KONTEN UTAMA DAN SIDEBAR -->
+        <tr>
 
-            <p style="text-align: right;">
-                <small><em>Minggu, 26 September 2026</em></small>
-            </p>
+            <!-- KONTEN TENTANG SAYA -->
+            <td width="75%">
 
-            <p>
-                Nama saya Carissa Shabnam Noya, bisa panggil saya Noya,
-                dan saya suka Yupi! Saya lahir pada tanggal 9 July 2009.
-                Saya bersekolah di SMKN 1 Tangerang, kelas XI DKV 2.
-            </p>
+                <h3 style="text-align: center;">
+                    Tentang Saya
+                </h3>
 
-            <p><strong>Hobi</strong></p>
+                <p style="text-align: right;">
+                    <small>
+                        <em>Minggu, 26 September 2026</em>
+                    </small>
+                </p>
 
-            <p>
-                Saya memiliki hobi menggambar, journaling, menulis puisi,
-                dan menulis kata-kata yang sebenarnya sepele tetapi bisa
-                diserapi lebih dalam. Saya juga suka grup K-pop Seventeen!
-                Bias saya Jeonghan dan Joshua.
-            </p>
-        </td>
+                <p>
+                    Nama saya Carissa Shabnam Noya, bisa panggil saya Noya,
+                    dan saya suka Yupi! Saya lahir pada tanggal 9 July 2009.
+                    Saya bersekolah di SMKN 1 Tangerang, kelas XI DKV 2.
+                </p>
 
-        <!-- SIDEBAR -->
-        <td width="25%" valign="top">
-            <p>Tautan Eksternal</p>
+                <p>
+                    <strong>Hobi</strong>
+                </p>
 
-            <ol>
-                <li>
-                    <a href="https://www.mawan.or.id">Website Mawan</a>
-                </li>
-                <li>
-                    <a href="https://www.github.com">Github</a>
-                </li>
-                <li>
-                    <a href="https://www.wikipedia.org">Wikipedia</a>
-                </li>
-                <li>
-                    <a href="https://www.w3schools.com">W3Schools</a>
-                </li>
-            </ol>
-        </td>
-    </tr>
+                <p>
+                    Saya memiliki hobi menggambar, journaling, menulis puisi,
+                    dan menulis kata-kata yang sebenarnya sepele tetapi bisa
+                    diserapi lebih dalam. Saya juga suka grup K-pop Seventeen!
+                    Bias saya Jeonghan dan Joshua.
+                </p>
 
-    <!-- FOOTER -->
-    <tr>
-        <td colspan="2">
-            <small>&copy; Copyright Noya Yupi, 2026.</small>
-        </td>
-    </tr>
-</table>
-```
+            </td>
+
+            <!-- SIDEBAR -->
+            <td width="25%" valign="top">
+
+                <p>Tautan Eksternal</p>
+
+                <ol>
+                    <li>
+                        <a href="https://www.mawan.or.id">
+                            Website Mawan
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.github.com">
+                            Github
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.wikipedia.org">
+                            Wikipedia
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.w3schools.com">
+                            W3Schools
+                        </a>
+                    </li>
+                </ol>
+
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+            <td colspan="2">
+                <small>
+                    &copy; Copyright Noya Yupi, 2026.
+                </small>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- =========================================
+         JAVASCRIPT ANIMASI INTERAKTIF
+         ========================================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const reducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+            // Membuat efek sparkle pada posisi klik
+            function createSparkles(x, y) {
+
+                if (reducedMotion) return;
+
+                const symbols = ["✦", "✧", "♡", "✦", "⋆"];
+
+                const colors = [
+                    "#E99AB2",
+                    "#76B9B2",
+                    "#C4A0D8",
+                    "#D9AA73"
+                ];
+
+                for (let i = 0; i < 5; i++) {
+
+                    const sparkle = document.createElement("span");
+
+                    sparkle.className = "click-sparkle";
+
+                    sparkle.textContent =
+                        symbols[Math.floor(Math.random() * symbols.length)];
+
+                    sparkle.style.left = x + "px";
+                    sparkle.style.top = y + "px";
+                    sparkle.style.color = colors[i % colors.length];
+
+                    sparkle.style.setProperty(
+                        "--move-x",
+                        (Math.random() - 0.5) * 100 + "px"
+                    );
+
+                    sparkle.style.setProperty(
+                        "--move-y",
+                        (Math.random() - 0.5) * 100 + "px"
+                    );
+
+                    document.body.appendChild(sparkle);
+
+                    sparkle.addEventListener(
+                        "animationend",
+                        () => sparkle.remove(),
+                        { once: true }
+                    );
+                }
+            }
+
+            // Efek klik dan transisi pada semua link
+            document.querySelectorAll("a").forEach(link => {
+
+                link.addEventListener("click", event => {
+
+                    const href = link.getAttribute("href");
+
+                    // Abaikan link kosong dan link khusus
+                    if (
+                        !href ||
+                        href.startsWith("#") ||
+                        href.startsWith("javascript:") ||
+                        link.hasAttribute("download") ||
+                        link.target === "_blank" ||
+                        event.ctrlKey ||
+                        event.metaKey ||
+                        event.shiftKey ||
+                        event.altKey ||
+                        event.button !== 0
+                    ) {
+                        createSparkles(
+                            event.clientX,
+                            event.clientY
+                        );
+
+                        return;
+                    }
+
+                    // Tampilkan sparkle saat link ditekan
+                    createSparkles(
+                        event.clientX,
+                        event.clientY
+                    );
+
+                    // Hormati pengaturan pengurangan animasi
+                    if (reducedMotion) return;
+
+                    // Tunda perpindahan agar animasi terlihat
+                    event.preventDefault();
+
+                    const destination = link.href;
+
+                    document.body.classList.add("page-leaving");
+
+                    setTimeout(() => {
+                        window.location.href = destination;
+                    }, 300);
+
+                });
+
+            });
+
+        });
+    </script>
 
 </body>
 </html>
