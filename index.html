@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,40 +9,181 @@
     <title>Beranda - Website Yupi Sekolah</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           PALET WARNA WEBSITE YUPI
-           ========================================= */
+        /* =====================================
+           YUPI'S RETRO PASTEL INTERNET WORLD
+           Vintage gradients + scrapbook details
+           ===================================== */
+
+        :root {
+            --mint: #E5F2EF;
+            --teal: #76B9B2;
+            --deep-teal: #547F79;
+            --soft-teal: #579D96;
+            --pink: #F6D5DE;
+            --hot-pink: #C76F8D;
+            --cream: #FFF9F5;
+            --brown: #73594B;
+            --beige: #B99A83;
+            --border: #E8D8D0;
+            --lavender: #C4A0D8;
+            --yellow: #F6E7A9;
+            --white: #FFFFFF;
+
+            --gradient-page:
+                linear-gradient(
+                    135deg,
+                    #FBE8E9 0%,
+                    #F7F0D2 28%,
+                    #E5F2EF 60%,
+                    #F5DCE7 100%
+                );
+
+            --gradient-header:
+                linear-gradient(
+                    120deg,
+                    #4F928B 0%,
+                    #76B9B2 35%,
+                    #A7D5C9 68%,
+                    #D9E8CE 100%
+                );
+
+            --gradient-pink:
+                linear-gradient(
+                    135deg,
+                    #F6D5DE 0%,
+                    #FFF0D4 48%,
+                    #F9DCE7 100%
+                );
+
+            --gradient-button:
+                linear-gradient(
+                    180deg,
+                    #FFFFFF 0%,
+                    #FFF7ED 40%,
+                    #F8DCE5 100%
+                );
+
+            --gradient-button-hover:
+                linear-gradient(
+                    135deg,
+                    #F9E3A9 0%,
+                    #F7D5E0 52%,
+                    #E8D5F2 100%
+                );
+
+            --gradient-content:
+                linear-gradient(
+                    135deg,
+                    #FFFDF8 0%,
+                    #FFF7F3 55%,
+                    #FDF0F3 100%
+                );
+
+            --gradient-sidebar:
+                linear-gradient(
+                    155deg,
+                    #E5F2EF 0%,
+                    #F0F5D9 48%,
+                    #F9E4E9 100%
+                );
+
+            --gradient-footer:
+                linear-gradient(
+                    110deg,
+                    #B99A83 0%,
+                    #CE9CA8 50%,
+                    #DAB8A0 100%
+                );
+
+            --pixel-shadow: 4px 4px 0 rgba(115, 89, 75, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            background-color: #E5F2EF;
-            background-image: url("images/background.svg");
-            color: #73594B;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 32px 14px;
+
+            color: var(--brown);
             font-family: 'Nunito', sans-serif;
+            font-size: 15px;
             font-weight: 400;
             line-height: 1.8;
-            margin: 0;
-            padding: 20px 10px;
 
-            /* Animasi masuk halaman */
+            background-color: var(--mint);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(118, 185, 178, 0.34) 1.7px,
+                    transparent 2px
+                ),
+                var(--gradient-page),
+                url("images/background.svg");
+
+            background-size:
+                22px 22px,
+                cover,
+                auto;
+
+            background-attachment: fixed;
             animation: pageAppear 0.65s ease both;
         }
 
-        /* =========================================
-           ANIMASI HALAMAN
-           ========================================= */
+        /* Decorative retro symbols */
+        body::before {
+            content: "✧  ♡  ✦  ♡  ✧";
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--hot-pink);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 15px;
+            letter-spacing: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0.95;
+            text-shadow: 1px 1px 0 var(--white);
+        }
+
+        body::after {
+            content: "♡";
+            position: fixed;
+            right: 18px;
+            bottom: 12px;
+            z-index: 5;
+            color: var(--hot-pink);
+            font-size: 36px;
+            text-shadow:
+                2px 2px 0 var(--white),
+                3px 3px 0 var(--yellow);
+            pointer-events: none;
+            animation: heartFloat 3s ease-in-out infinite;
+        }
+
+        /* =====================================
+           ANIMATIONS
+           ===================================== */
 
         @keyframes pageAppear {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(12px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -55,244 +197,58 @@
             }
         }
 
-        /* =========================================
-           TABEL UTAMA
-           ========================================= */
-
-        table {
-            width: 900px;
-            max-width: 100%;
-            margin: auto;
-
-            border: 3px solid #76B9B2;
-            border-spacing: 0;
-            border-collapse: separate;
-            border-radius: 24px;
-            overflow: hidden;
-
-            background-color: #FFF9F5;
-            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
+        @keyframes heartFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(8deg);
+            }
         }
 
-        /* =========================================
-           SEMUA SEL
-           ========================================= */
-
-        td {
-            padding: 18px;
-            border: 1px solid #E8D8D0;
-            overflow-wrap: anywhere;
-
-            transition:
-                background-color 0.3s ease,
-                border-radius 0.3s ease;
-        }
-
-        /* =========================================
-           HEADER WEBSITE
-           ========================================= */
-
-        tr:first-child td {
-            background-color: #76B9B2;
-            background-image: url("images/jaring-teal.svg");
-            background-size: cover;
-            background-position: center;
-
-            color: #FFFFFF;
-            text-align: center;
-            padding: 24px;
-            border: none;
-        }
-
-        h1 {
-            color: #FFFFFF;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        tr:first-child p {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 600;
-        }
-
-        /* =========================================
-           MENU NAVIGASI
-           ========================================= */
-
-        tr:nth-child(2) td {
-            background-color: #F6D5DE;
-            text-align: center;
-            padding: 16px;
-        }
-
-        a {
-            display: inline-block;
-            position: relative;
-
-            color: #547F79;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 800;
-            text-decoration: none;
-
-            transition:
-                color 0.25s ease,
-                transform 0.25s cubic-bezier(.2, 1.5, .5, 1),
-                text-shadow 0.25s ease;
-        }
-
-        a:hover {
-            color: #C76F8D;
-            text-decoration: underline;
-            transform: translateY(-2px) scale(1.04);
-
-            text-shadow:
-                0 3px 10px rgba(199, 111, 141, 0.18);
-        }
-
-        a:active {
-            transform: scale(0.91);
-            transition-duration: 0.1s;
-        }
-
-        /* Animasi memantul khusus menu */
-
-        tr:nth-child(2) a {
-            padding: 5px 8px;
-            border-radius: 12px;
-        }
-
-        tr:nth-child(2) a:hover {
-            background-color: rgba(255, 249, 245, 0.75);
-            text-decoration: none;
-            animation: cuteBounce 0.4s ease;
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.72;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.06);
+            }
         }
 
         @keyframes cuteBounce {
             0%, 100% {
-                transform: translateY(0) scale(1.04);
+                transform: translateY(0) scale(1);
             }
-
             35% {
-                transform: translateY(-5px) scale(1.08);
+                transform: translateY(-5px) scale(1.04);
             }
-
             65% {
                 transform: translateY(1px) scale(0.98);
             }
         }
 
-        /* =========================================
-           AREA KONTEN
-           ========================================= */
-
-        tr:nth-child(3) td {
-            background-color: #FFF9F5;
-            vertical-align: top;
-            line-height: 1.7;
-
-            transition:
-                background-color 0.3s ease,
-                border-radius 0.3s ease;
-        }
-
-        tr:nth-child(3) td:hover {
-            background-color: #FFF1F3;
-        }
-
-        tr:nth-child(3) td:first-child {
-            border-radius: 18px 8px 8px 18px;
-        }
-
-        /* =========================================
-           SIDEBAR
-           ========================================= */
-
-        tr:nth-child(3) td:last-child {
-            background-color: #E6F2EF;
-            border-radius: 8px 18px 18px 8px;
-        }
-
-        tr:nth-child(3) td:last-child p {
-            color: #579D96;
-            font-weight: 800;
-        }
-
-        /* =========================================
-           JUDUL BERITA
-           ========================================= */
-
-        h2,
-        h3 {
-            color: #579D96;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        h2 {
-            font-size: 24px;
-            line-height: 1.4;
-        }
-
-        h3 {
-            font-size: 21px;
-            line-height: 1.4;
-        }
-
-        /* =========================================
-           TEKS DAN DAFTAR
-           ========================================= */
-
-        p {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 400;
-        }
-
-        strong {
-            color: #579D96;
-            font-weight: 800;
-        }
-
-        li {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        hr {
-            border: none;
-            border-top: 2px dashed #E8D8D0;
-            margin: 24px 0;
-        }
-
-        /* =========================================
-           EFEK SPARKLE SAAT DIKLIK
-           ========================================= */
-
-        .click-sparkle {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-
-            font-size: 18px;
-            line-height: 1;
-
-            animation: sparkleFly 0.65s ease-out forwards;
+        @keyframes retroPulse {
+            0%, 100% {
+                box-shadow:
+                    0 0 0 3px var(--white),
+                    0 0 0 5px var(--pink),
+                    3px 4px 0 rgba(115, 89, 75, 0.14);
+            }
+            50% {
+                box-shadow:
+                    0 0 0 3px var(--white),
+                    0 0 0 5px var(--teal),
+                    3px 4px 0 rgba(115, 89, 75, 0.14);
+            }
         }
 
         @keyframes sparkleFly {
             0% {
                 opacity: 1;
-                transform:
-                    translate(-50%, -50%)
-                    scale(0.4)
-                    rotate(0deg);
+                transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
             }
-
             100% {
                 opacity: 0;
                 transform:
@@ -305,40 +261,669 @@
             }
         }
 
-        /* =========================================
-           TRANSISI SEBELUM PINDAH HALAMAN
-           ========================================= */
+        @keyframes rippleOut {
+            from {
+                opacity: 0.85;
+                width: 8px;
+                height: 8px;
+            }
+            to {
+                opacity: 0;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        /* =====================================
+           MAIN TABLE — RETRO WINDOW FRAME
+           ===================================== */
+
+        table {
+            position: relative;
+            isolation: isolate;
+            width: 900px;
+            max-width: 100%;
+            margin: 12px auto 24px;
+
+            border: 3px solid var(--teal);
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 20px;
+            overflow: hidden;
+
+            background: var(--gradient-content);
+
+            box-shadow:
+                0 0 0 4px var(--white),
+                0 0 0 7px var(--pink),
+                0 0 0 9px rgba(246, 231, 169, 0.8),
+                8px 10px 0 rgba(115, 89, 75, 0.12),
+                0 18px 36px rgba(76, 139, 132, 0.20);
+
+            transition:
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        table:hover {
+            box-shadow:
+                0 0 0 4px var(--white),
+                0 0 0 7px var(--teal),
+                0 0 0 9px var(--pink),
+                8px 10px 0 rgba(115, 89, 75, 0.12),
+                0 20px 40px rgba(76, 139, 132, 0.24);
+        }
+
+        td {
+            padding: 18px;
+            border: 1px solid var(--border);
+            overflow-wrap: anywhere;
+
+            transition:
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        /* =====================================
+           HEADER — VINTAGE Y2K SCRAPBOOK
+           No polkadots here!
+           ===================================== */
+
+        tr:first-child td {
+            position: relative;
+            background-color: var(--teal);
+            background-image:
+                url("images/jaring-teal.svg"),
+                linear-gradient(
+                    115deg,
+                    rgba(255, 255, 255, 0.16) 0%,
+                    transparent 36%,
+                    rgba(246, 213, 222, 0.24) 72%,
+                    rgba(255, 249, 245, 0.35) 100%
+                ),
+                var(--gradient-header);
+
+            background-size: cover, cover, cover;
+            background-position: center;
+
+            color: var(--white);
+            text-align: center;
+            padding: 32px 24px;
+            border: none;
+            border-bottom: 5px solid var(--white);
+
+            box-shadow:
+                inset 0 -4px 0 rgba(84, 127, 121, 0.25),
+                inset 0 3px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        tr:first-child td::before {
+            content: "★ WELCOME TO MY WEB ★";
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 4px 14px;
+
+            border: 2px dotted var(--white);
+            border-radius: 5px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(84, 127, 121, 0.78),
+                    rgba(199, 111, 141, 0.52),
+                    rgba(84, 127, 121, 0.72)
+                );
+
+            color: var(--white);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: twinkle 2.5s ease-in-out infinite;
+        }
+
+        h1 {
+            color: var(--white);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 12px;
+
+            text-shadow:
+                2px 2px 0 var(--deep-teal),
+                4px 4px 0 rgba(84, 127, 121, 0.28),
+                0 0 12px rgba(255, 249, 245, 0.25);
+        }
+
+        tr:first-child p {
+            display: inline-block;
+            max-width: 100%;
+            margin: 0;
+            padding: 6px 14px;
+
+            border: 2px dashed rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(255, 249, 245, 0.22),
+                    rgba(246, 213, 222, 0.24),
+                    rgba(255, 249, 245, 0.15)
+                );
+
+            color: var(--white);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            text-shadow: 1px 1px 0 rgba(84, 127, 121, 0.25);
+        }
+
+        /* =====================================
+           NAVIGATION — GRADIENT CANDY BUTTONS
+           ===================================== */
+
+        tr:nth-child(2) td {
+            background-color: var(--pink);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.8) 1.8px,
+                    transparent 2.6px
+                ),
+                linear-gradient(
+                    100deg,
+                    #F6D5DE 0%,
+                    #FFF0D8 45%,
+                    #F1DDF0 100%
+                );
+
+            background-size: 17px 17px, cover;
+            text-align: center;
+            padding: 18px 12px;
+            border-bottom: 3px dashed var(--hot-pink);
+        }
+
+        a {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+
+            color: var(--deep-teal);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-decoration: none;
+
+            transition:
+                color 0.22s ease,
+                transform 0.22s cubic-bezier(.2, 1.5, .5, 1),
+                box-shadow 0.22s ease,
+                background 0.22s ease,
+                border-color 0.22s ease;
+        }
+
+        a:hover {
+            color: var(--hot-pink);
+            text-decoration: none;
+        }
+
+        a:active {
+            transform: scale(0.92);
+        }
+
+        a:focus-visible {
+            outline: 3px dashed var(--hot-pink);
+            outline-offset: 4px;
+        }
+
+        tr:nth-child(2) a {
+            margin: 4px 3px;
+            padding: 7px 13px;
+
+            border: 2px solid var(--white);
+            border-radius: 9px;
+
+            background: var(--gradient-button);
+
+            box-shadow:
+                inset 0 1px 0 var(--white),
+                0 3px 0 var(--teal),
+                0 4px 0 rgba(115, 89, 75, 0.10);
+        }
+
+        tr:nth-child(2) a:hover {
+            background: var(--gradient-button-hover);
+            border-color: var(--hot-pink);
+            color: var(--brown);
+
+            box-shadow:
+                inset 0 1px 0 var(--white),
+                0 5px 0 var(--hot-pink),
+                0 7px 0 rgba(115, 89, 75, 0.10);
+
+            transform: translateY(-3px) rotate(-1deg);
+            animation: cuteBounce 0.4s ease;
+        }
+
+        tr:nth-child(2) a:active {
+            transform: translateY(3px) scale(0.96);
+            box-shadow: 0 0 0 var(--hot-pink);
+            animation: none;
+        }
+
+        /* =====================================
+           CONTENT AREA — WARM PAPER GRADIENT
+           ===================================== */
+
+        tr:nth-child(3) td {
+            background: var(--gradient-content);
+            vertical-align: top;
+            line-height: 1.8;
+        }
+
+        tr:nth-child(3) td:first-child {
+            border-right: 2px dashed var(--border);
+            background-image:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 249, 245, 0.2) 42%,
+                    rgba(246, 213, 222, 0.18)
+                );
+        }
+
+        tr:nth-child(3) td:first-child:hover {
+            background-color: #FFF7F5;
+            background-image:
+                linear-gradient(
+                    145deg,
+                    #FFFDF8 0%,
+                    #FFF5F0 55%,
+                    #FBE6EC 100%
+                );
+            box-shadow: inset 4px 0 0 var(--pink);
+        }
+
+        /* =====================================
+           SIDEBAR — MINT & BUTTERCUP GRADIENT
+           ===================================== */
+
+        tr:nth-child(3) td:last-child {
+            background-color: var(--mint);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(118, 185, 178, 0.30) 1.8px,
+                    transparent 2.7px
+                ),
+                linear-gradient(
+                    155deg,
+                    rgba(229, 242, 239, 0.96) 0%,
+                    rgba(246, 241, 208, 0.88) 48%,
+                    rgba(249, 228, 233, 0.92) 100%
+                );
+
+            background-size: 18px 18px, cover;
+            border-left: 0;
+        }
+
+        tr:nth-child(3) td:last-child:hover {
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(118, 185, 178, 0.24) 1.8px,
+                    transparent 2.7px
+                ),
+                linear-gradient(
+                    155deg,
+                    #F1F8F2 0%,
+                    #FFF5D7 52%,
+                    #FBEAF0 100%
+                );
+        }
+
+        tr:nth-child(3) td:last-child p {
+            display: inline-block;
+            margin-top: 0;
+            padding: 5px 10px;
+
+            border: 2px dashed var(--teal);
+            border-radius: 8px;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #FFFFFF 0%,
+                    #FFF9F0 48%,
+                    #F9E4EB 100%
+                );
+
+            color: var(--soft-teal);
+            font-weight: 800;
+            box-shadow: 2px 2px 0 rgba(118, 185, 178, 0.18);
+        }
+
+        tr:nth-child(3) td:last-child ol {
+            padding-left: 24px;
+        }
+
+        tr:nth-child(3) td:last-child li {
+            padding: 3px 0;
+        }
+
+        tr:nth-child(3) td:last-child li::marker {
+            color: var(--hot-pink);
+            font-weight: 800;
+        }
+
+        /* =====================================
+           ARTICLE TITLES — RETRO LABEL STRIPS
+           ===================================== */
+
+        h2,
+        h3 {
+            color: var(--soft-teal);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        h2 {
+            font-size: 24px;
+            line-height: 1.4;
+        }
+
+        h3 {
+            position: relative;
+            font-size: 22px;
+            line-height: 1.45;
+            padding: 7px 10px 7px 14px;
+
+            border-left: 5px solid var(--hot-pink);
+            border-radius: 0 8px 8px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(246, 213, 222, 0.60) 0%,
+                    rgba(255, 249, 245, 0.78) 55%,
+                    rgba(229, 242, 239, 0.38) 100%
+                );
+
+            text-shadow: 1px 1px 0 rgba(246, 213, 222, 0.5);
+
+            transition:
+                border-color 0.25s ease,
+                padding-left 0.25s ease,
+                color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        h3:hover {
+            border-left-color: var(--teal);
+            padding-left: 19px;
+            color: var(--hot-pink);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(229, 242, 239, 0.95) 0%,
+                    rgba(255, 249, 245, 0.9) 55%,
+                    rgba(246, 213, 222, 0.62) 100%
+                );
+        }
+
+        /* =====================================
+           PARAGRAPHS, LISTS AND TEXT
+           ===================================== */
+
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+        }
+
+        strong {
+            color: var(--soft-teal);
+            font-weight: 800;
+        }
+
+        li {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        small {
+            font-size: 0.82em;
+        }
+
+        hr {
+            height: 8px;
+            border: none;
+            margin: 28px 0;
+
+            background-image:
+                radial-gradient(
+                    circle,
+                    var(--hot-pink) 2.5px,
+                    transparent 3px
+                ),
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(246, 213, 222, 0.5),
+                    transparent
+                );
+
+            background-size: 14px 8px, 100% 2px;
+            background-repeat: repeat-x, no-repeat;
+            background-position: center, center;
+        }
+
+        /* =====================================
+           "SELanjutnya" RETRO GRADIENT BUTTONS
+           ===================================== */
+
+        tr:nth-child(3) td:first-child > p > a {
+            margin-top: 4px;
+            padding: 7px 16px;
+
+            border: 2px solid var(--white);
+            border-radius: 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #F6D5DE 0%,
+                    #FFF0D5 52%,
+                    #E9DDF1 100%
+                );
+
+            color: var(--brown);
+
+            box-shadow:
+                inset 0 1px 0 var(--white),
+                0 4px 0 var(--hot-pink),
+                0 5px 0 rgba(115, 89, 75, 0.10);
+        }
+
+        tr:nth-child(3) td:first-child > p > a::after {
+            content: " »";
+            color: var(--hot-pink);
+            transition: transform 0.2s ease;
+        }
+
+        tr:nth-child(3) td:first-child > p > a:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #F6E7A9 0%,
+                    #F6D5DE 55%,
+                    #DCD0ED 100%
+                );
+
+            border-color: var(--hot-pink);
+            color: var(--brown);
+            transform: translateY(-3px) rotate(-1deg);
+
+            box-shadow:
+                0 6px 0 var(--hot-pink),
+                0 7px 0 rgba(115, 89, 75, 0.10);
+        }
+
+        tr:nth-child(3) td:first-child > p > a:active {
+            transform: translateY(3px) scale(0.96);
+            box-shadow: none;
+        }
+
+        /* =====================================
+           EXTERNAL LINKS
+           ===================================== */
+
+        tr:nth-child(3) td:last-child li a {
+            border-bottom: 2px dotted var(--teal);
+            color: var(--deep-teal);
+
+            transition:
+                color 0.2s ease,
+                border-color 0.2s ease,
+                padding-left 0.2s ease;
+        }
+
+        tr:nth-child(3) td:last-child li a:hover {
+            padding-left: 5px;
+            border-color: var(--hot-pink);
+            color: var(--hot-pink);
+            transform: translateX(3px);
+        }
+
+        /* =====================================
+           CLICK SPARKLES AND RIPPLE
+           ===================================== */
+
+        .click-sparkle {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            font-size: 18px;
+            line-height: 1;
+            animation: sparkleFly 0.65s ease-out forwards;
+        }
+
+        .click-ripple {
+            position: fixed;
+            z-index: 9998;
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--hot-pink);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: rippleOut 0.45s ease-out forwards;
+        }
+
+        /* =====================================
+           PAGE TRANSITION
+           ===================================== */
 
         body.page-leaving {
             animation: pageDisappear 0.32s ease forwards;
             pointer-events: none;
         }
 
-        /* =========================================
-           FOOTER
-           ========================================= */
+        /* =====================================
+           FOOTER — DUSTY ROSE VINTAGE GRADIENT
+           ===================================== */
 
         tr:last-child td {
-            background-color: #B99A83;
-            color: #FFFFFF;
+            position: relative;
+
+            background-color: var(--beige);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.30) 1.8px,
+                    transparent 2.7px
+                ),
+                var(--gradient-footer);
+
+            background-size: 17px 17px, cover;
+
+            color: var(--white);
             text-align: right;
             padding: 16px 20px;
             border: none;
+            border-top: 4px solid var(--white);
+
+            box-shadow:
+                inset 0 3px 0 rgba(115, 89, 75, 0.12),
+                inset 0 -2px 0 rgba(255, 255, 255, 0.16);
         }
 
-        /* =========================================
-           RESPONSIVE UNTUK HP
-           ========================================= */
+        tr:last-child td small {
+            display: inline-block;
+            padding: 3px 10px;
+
+            border: 1px dashed rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(115, 89, 75, 0.22),
+                    rgba(199, 111, 141, 0.25),
+                    rgba(115, 89, 75, 0.14)
+                );
+
+            letter-spacing: 0.3px;
+            text-shadow: 1px 1px 0 rgba(115, 89, 75, 0.2);
+        }
+
+        /* =====================================
+           SELECTION COLOR
+           ===================================== */
+
+        ::selection {
+            background-color: var(--pink);
+            color: var(--brown);
+        }
+
+        /* =====================================
+           RESPONSIVE — MOBILE
+           ===================================== */
 
         @media (max-width: 600px) {
             body {
-                padding: 10px 5px;
+                padding: 20px 9px;
+                font-size: 13px;
+                background-size: 18px 18px, cover, auto;
+            }
+
+            body::before {
+                font-size: 11px;
+                letter-spacing: 7px;
+            }
+
+            body::after {
+                right: 7px;
+                bottom: 5px;
+                font-size: 27px;
             }
 
             table {
                 width: 100%;
                 font-size: 13px;
-                border-radius: 16px;
+                border-radius: 13px;
+                border-width: 2px;
+
+                box-shadow:
+                    0 0 0 3px var(--white),
+                    0 0 0 5px var(--pink),
+                    0 0 0 7px rgba(246, 231, 169, 0.8),
+                    4px 6px 0 rgba(115, 89, 75, 0.12),
+                    0 12px 24px rgba(76, 139, 132, 0.16);
             }
 
             td {
@@ -347,11 +932,17 @@
             }
 
             tr:first-child td {
-                padding: 18px 10px;
+                padding: 22px 10px;
+            }
+
+            tr:first-child td::before {
+                font-size: 8px;
+                letter-spacing: 1.5px;
+                padding: 3px 8px;
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 25px;
             }
 
             h2 {
@@ -360,14 +951,23 @@
 
             h3 {
                 font-size: 17px;
+                padding: 6px 7px 6px 9px;
+                border-left-width: 3px;
+            }
+
+            tr:first-child p {
+                padding: 5px 8px;
             }
 
             tr:nth-child(2) td {
-                padding: 10px 4px;
+                padding: 9px 4px;
             }
 
             tr:nth-child(2) a {
-                padding: 4px;
+                margin: 3px 1px;
+                padding: 5px 6px;
+                font-size: 11px;
+                border-radius: 7px;
             }
 
             tr:nth-child(3) td {
@@ -375,37 +975,77 @@
             }
 
             tr:nth-child(3) td:first-child {
-                border-radius: 12px 6px 6px 12px;
+                border-right-width: 1px;
             }
 
             tr:nth-child(3) td:last-child {
-                border-radius: 6px 12px 12px 6px;
+                padding: 12px 8px;
+            }
+
+            tr:nth-child(3) td:last-child ol {
+                padding-left: 17px;
+            }
+
+            tr:nth-child(3) td:last-child li {
+                margin-bottom: 10px;
+            }
+
+            tr:nth-child(3) td:first-child > p > a {
+                padding: 5px 9px;
             }
 
             hr {
                 margin: 18px 0;
             }
+
+            tr:last-child td {
+                padding: 12px 10px;
+            }
         }
 
-        /* =========================================
-           AKSESIBILITAS
-           ========================================= */
+        @media (max-width: 360px) {
+            tr:nth-child(2) a {
+                padding: 4px 3px;
+                font-size: 10px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h3 {
+                font-size: 15px;
+            }
+
+            td {
+                padding: 8px;
+            }
+        }
+
+        /* =====================================
+           ACCESSIBILITY
+           ===================================== */
 
         @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
             body,
             body.page-leaving {
                 animation: none;
             }
 
-            a,
-            a:hover,
-            a:active {
-                animation: none;
-                transition: none;
-                transform: none;
-            }
-
-            .click-sparkle {
+            .click-sparkle,
+            .click-ripple {
                 display: none;
             }
         }
@@ -544,10 +1184,6 @@
 
     </table>
 
-    <!-- =========================================
-         JAVASCRIPT ANIMASI INTERAKTIF
-         ========================================= -->
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
 
@@ -555,22 +1191,20 @@
                 "(prefers-reduced-motion: reduce)"
             ).matches;
 
-            // Membuat efek sparkle pada posisi klik
             function createSparkles(x, y) {
-
                 if (reducedMotion) return;
 
-                const symbols = ["✦", "✧", "♡", "✦", "⋆"];
+                const symbols = ["✦", "✧", "♡", "⋆", "✿", "★"];
 
                 const colors = [
                     "#E99AB2",
                     "#76B9B2",
                     "#C4A0D8",
-                    "#D9AA73"
+                    "#D9AA73",
+                    "#F6E7A9"
                 ];
 
-                for (let i = 0; i < 5; i++) {
-
+                for (let i = 0; i < 6; i++) {
                     const sparkle = document.createElement("span");
 
                     sparkle.className = "click-sparkle";
@@ -602,15 +1236,41 @@
                 }
             }
 
-            // Efek klik dan transisi pada semua link
-            document.querySelectorAll("a").forEach(link => {
+            function createRipple(x, y) {
+                if (reducedMotion) return;
+
+                const ripple = document.createElement("span");
+
+                ripple.className = "click-ripple";
+                ripple.style.left = x + "px";
+                ripple.style.top = y + "px";
+
+                document.body.appendChild(ripple);
+
+                ripple.addEventListener(
+                    "animationend",
+                    () => ripple.remove(),
+                    { once: true }
+                );
+            }
+
+            document.querySelectorAll("a").forEach((link, index) => {
+
+                link.dataset.retroButton = index;
+
+                link.addEventListener("pointerenter", () => {
+                    if (reducedMotion) return;
+
+                    if (link.closest("tr:nth-child(2)")) {
+                        link.style.setProperty("--hover-tilt", "-1deg");
+                    }
+                });
 
                 link.addEventListener("click", event => {
 
                     const href = link.getAttribute("href");
 
-                    // Abaikan link kosong dan link khusus
-                    if (
+                    const isSpecialLink =
                         !href ||
                         href.startsWith("#") ||
                         href.startsWith("javascript:") ||
@@ -620,33 +1280,21 @@
                         event.metaKey ||
                         event.shiftKey ||
                         event.altKey ||
-                        event.button !== 0
-                    ) {
-                        createSparkles(
-                            event.clientX,
-                            event.clientY
-                        );
+                        event.button !== 0;
 
-                        return;
-                    }
+                    createSparkles(event.clientX, event.clientY);
+                    createRipple(event.clientX, event.clientY);
 
-                    // Tampilkan sparkle saat link ditekan
-                    createSparkles(
-                        event.clientX,
-                        event.clientY
-                    );
-
-                    // Hormati pengaturan pengurangan animasi
+                    if (isSpecialLink) return;
                     if (reducedMotion) return;
 
-                    // Tunda perpindahan agar animasi terlihat
                     event.preventDefault();
 
                     const destination = link.href;
 
                     document.body.classList.add("page-leaving");
 
-                    setTimeout(() => {
+                    window.setTimeout(() => {
                         window.location.href = destination;
                     }, 300);
 
