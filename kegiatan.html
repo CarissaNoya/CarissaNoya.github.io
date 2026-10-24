@@ -13,24 +13,99 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* TAMPILAN UTAMA */
+        :root {
+            --mint: #E5F2EF;
+            --teal: #76B9B2;
+            --deep-teal: #547F79;
+            --soft-teal: #579D96;
+            --pink: #F6D5DE;
+            --hot-pink: #C76F8D;
+            --cream: #FFF9F5;
+            --brown: #73594B;
+            --beige: #B99A83;
+            --border: #E8D8D0;
+            --lavender: #C4A0D8;
+            --yellow: #F6E7A9;
+            --peach: #F2C6B8;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #E5F2EF;
-            background-image: url("images/background.svg");
-            color: #73594B;
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            padding: 35px 12px;
+            overflow-x: hidden;
+
+            color: var(--brown);
             font-family: 'Nunito', sans-serif;
+            font-size: 15px;
             font-weight: 400;
             line-height: 1.8;
-            margin: 0;
-            padding: 20px 10px;
-            animation: pageAppear 0.65s ease both;
+
+            /* BACKGROUND KHUSUS HALAMAN SEKOLAHKU */
+            background-color: var(--yellow);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(242, 198, 184, .58) 1.8px,
+                    transparent 2.5px
+                ),
+                linear-gradient(
+                    135deg,
+                    #F6E7A9 0%,
+                    #F8D9C8 43%,
+                    #F6D5DE 75%,
+                    #FFF1D4 100%
+                );
+            background-size: 23px 23px, 100% 100%;
+            background-attachment: fixed;
+
+            animation: pageAppear .65s ease both;
         }
+
+        body::before {
+            content: "✧  ♡  ✦  ♡  ✧";
+            display: block;
+            margin: 0 auto 15px;
+            color: var(--hot-pink);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 23px;
+            letter-spacing: 8px;
+            text-align: center;
+            animation: decorationFloat 3s ease-in-out infinite;
+        }
+
+        body::after {
+            content: "♡";
+            position: fixed;
+            right: 18px;
+            bottom: 12px;
+            z-index: 20;
+            color: var(--hot-pink);
+            font-size: 36px;
+            line-height: 1;
+            text-shadow: 2px 3px 0 rgba(255, 255, 255, .9);
+            pointer-events: none;
+            animation: heartFloat 2.5s ease-in-out infinite;
+        }
+
+        /* ANIMASI */
 
         @keyframes pageAppear {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(12px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -44,187 +119,46 @@
             }
         }
 
-        /* TABEL UTAMA */
-        table {
-            width: 900px;
-            max-width: 100%;
-            margin: 0 auto;
-            border: 3px solid #76B9B2;
-            border-spacing: 0;
-            border-collapse: separate;
-            border-radius: 24px;
-            overflow: hidden;
-            background-color: #FFF9F5;
-            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
+        @keyframes decorationFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
         }
 
-        td {
-            padding: 18px;
-            border: 1px solid #E8D8D0;
-            overflow-wrap: anywhere;
-            transition: background-color 0.3s ease, border-radius 0.3s ease;
-        }
+        @keyframes heartFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-8deg);
+            }
 
-        /* HEADER WEBSITE */
-        tr:first-child td {
-            background-color: #76B9B2;
-            background-image: url("images/jaring-teal.svg");
-            background-size: cover;
-            background-position: center;
-            color: #FFF;
-            text-align: center;
-            padding: 24px;
-            border: none;
-        }
-
-        h1 {
-            color: #FFF;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        tr:first-child p {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 600;
-        }
-
-        /* MENU NAVIGASI */
-        tr:nth-child(2) td {
-            background-color: #F6D5DE;
-            text-align: center;
-            padding: 16px;
-        }
-
-        a {
-            display: inline-block;
-            position: relative;
-            color: #547F79;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 800;
-            text-decoration: none;
-            transition:
-                color 0.25s ease,
-                transform 0.25s cubic-bezier(0.2, 1.5, 0.5, 1),
-                text-shadow 0.25s ease;
-        }
-
-        a:hover {
-            color: #C76F8D;
-            text-decoration: underline;
-            transform: translateY(-2px) scale(1.04);
-            text-shadow: 0 3px 10px rgba(199, 111, 141, 0.18);
-        }
-
-        a:active {
-            transform: scale(0.91);
-            transition-duration: 0.1s;
-        }
-
-        tr:nth-child(2) a {
-            padding: 5px 8px;
-            border-radius: 12px;
-        }
-
-        tr:nth-child(2) a:hover {
-            background-color: rgba(255, 249, 245, 0.75);
-            text-decoration: none;
-            animation: cuteBounce 0.4s ease;
+            50% {
+                transform: translateY(-9px) rotate(8deg);
+            }
         }
 
         @keyframes cuteBounce {
             0%, 100% {
-                transform: translateY(0) scale(1.04);
+                transform: translateY(0) scale(1);
             }
+
             35% {
-                transform: translateY(-5px) scale(1.08);
+                transform: translateY(-5px) scale(1.05);
             }
+
             65% {
-                transform: translateY(1px) scale(0.98);
+                transform: translateY(1px) scale(.98);
             }
-        }
-
-        /* AREA KONTEN DAN SIDEBAR */
-        tr:nth-child(3) td {
-            background-color: #FFF9F5;
-            vertical-align: top;
-            line-height: 1.7;
-            transition: background-color 0.3s ease, border-radius 0.3s ease;
-        }
-
-        tr:nth-child(3) td:hover {
-            background-color: #FFF1F3;
-        }
-
-        tr:nth-child(3) td:first-child {
-            border-radius: 18px 8px 8px 18px;
-        }
-
-        tr:nth-child(3) td:last-child {
-            background-color: #E6F2EF;
-            border-radius: 8px 18px 18px 8px;
-        }
-
-        tr:nth-child(3) td:last-child p {
-            color: #579D96;
-            font-weight: 800;
-        }
-
-        /* JUDUL KONTEN */
-        h2 {
-            color: #579D96;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            line-height: 1.4;
-        }
-
-        h3 {
-            color: #579D96;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 21px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            line-height: 1.4;
-        }
-
-        /* TEKS PARAGRAF */
-        p {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 400;
-        }
-
-        strong {
-            color: #579D96;
-            font-weight: 800;
-        }
-
-        /* DAFTAR TAUTAN */
-        li {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        /* EFEK SPARKLE SAAT LINK DIKLIK */
-        .click-sparkle {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            font-size: 18px;
-            line-height: 1;
-            animation: sparkleFly 0.65s ease-out forwards;
         }
 
         @keyframes sparkleFly {
             0% {
                 opacity: 1;
-                transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+                transform: translate(-50%, -50%) scale(.4) rotate(0deg);
             }
+
             100% {
                 opacity: 0;
                 transform:
@@ -237,31 +171,426 @@
             }
         }
 
-        /* TRANSISI SAAT PINDAH HALAMAN */
+        /* TABEL UTAMA */
+
+        table {
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            border: 3px solid var(--teal);
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 22px;
+            overflow: hidden;
+            background-color: var(--cream);
+
+            box-shadow:
+                0 0 0 5px rgba(255, 255, 255, .9),
+                0 0 0 9px rgba(242, 198, 184, .9),
+                0 12px 28px rgba(156, 113, 87, .22);
+
+            transition: box-shadow .3s ease;
+        }
+
+        table:hover {
+            box-shadow:
+                0 0 0 5px rgba(255, 255, 255, .92),
+                0 0 0 9px rgba(246, 213, 222, .95),
+                0 15px 34px rgba(156, 113, 87, .25);
+        }
+
+        td {
+            padding: 18px;
+            border: 1px solid var(--border);
+            overflow-wrap: anywhere;
+
+            transition:
+                background-color .3s ease,
+                border-radius .3s ease;
+        }
+
+        /* HEADER WEBSITE */
+
+        tr:first-child td {
+            position: relative;
+            padding: 30px 22px 25px;
+            border: none;
+            color: var(--white);
+            text-align: center;
+
+            background-color: var(--teal);
+            background-image:
+                url("images/jaring-teal.svg"),
+                linear-gradient(
+                    135deg,
+                    #579D96 0%,
+                    #76B9B2 48%,
+                    #D9F0E9 100%
+                );
+            background-size: cover, cover;
+            background-position: center;
+        }
+
+        tr:first-child td::before {
+            content: "★ WELCOME TO MY WEB ★";
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 3px 13px;
+            border: 1px solid rgba(255, 255, 255, .85);
+            border-radius: 20px;
+            color: var(--white);
+            background: rgba(84, 127, 121, .35);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: var(--white);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: .6px;
+            text-shadow: 2px 3px 0 var(--soft-teal);
+        }
+
+        tr:first-child p {
+            display: inline-block;
+            margin: 5px 0;
+            padding: 5px 14px;
+            border: 1px dashed rgba(255, 255, 255, .9);
+            border-radius: 20px;
+            color: var(--white);
+            background: rgba(255, 255, 255, .13);
+            font-weight: 700;
+        }
+
+        /* NAVIGASI */
+
+        tr:nth-child(2) td {
+            padding: 16px 12px;
+            border: none;
+            border-bottom: 3px dotted var(--hot-pink);
+            text-align: center;
+
+            background-color: var(--pink);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, .9) 1.5px,
+                    transparent 2px
+                ),
+                linear-gradient(
+                    110deg,
+                    #F6D5DE,
+                    #FFF9F5 48%,
+                    #F6E7A9
+                );
+            background-size: 17px 17px, 100% 100%;
+        }
+
+        a {
+            position: relative;
+            display: inline-block;
+            color: var(--deep-teal);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            text-decoration: none;
+
+            transition:
+                color .25s ease,
+                transform .25s cubic-bezier(.2, 1.5, .5, 1),
+                text-shadow .25s ease;
+        }
+
+        a:hover {
+            color: var(--hot-pink);
+            text-decoration: underline;
+            text-shadow: 0 3px 10px rgba(199, 111, 141, .18);
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        a:active {
+            transform: scale(.93);
+            transition-duration: .1s;
+        }
+
+        tr:nth-child(2) a {
+            margin: 3px 2px;
+            padding: 6px 12px;
+            border: 2px solid var(--white);
+            border-radius: 12px;
+            background: linear-gradient(
+                135deg,
+                #FFF9F5,
+                #F6E7A9
+            );
+            box-shadow: 0 4px 0 var(--teal);
+        }
+
+        tr:nth-child(2) a:hover {
+            border-color: var(--white);
+            background: linear-gradient(
+                135deg,
+                var(--pink),
+                var(--yellow),
+                #F2C6B8
+            );
+            text-decoration: none;
+            animation: cuteBounce .4s ease;
+        }
+
+        /* AREA KONTEN */
+
+        tr:nth-child(3) td {
+            vertical-align: top;
+            line-height: 1.8;
+
+            background: linear-gradient(
+                145deg,
+                #FFF9F5,
+                #FFF6ED
+            );
+
+            transition: background .3s ease;
+        }
+
+        tr:nth-child(3) td:hover {
+            background: linear-gradient(
+                145deg,
+                #FFF9F5,
+                #FFF0E9
+            );
+        }
+
+        tr:nth-child(3) td:first-child {
+            width: 75%;
+            padding: 23px;
+            border-right: 2px dashed var(--pink);
+        }
+
+        /* JUDUL ARTIKEL */
+
+        h2 {
+            margin-top: 8px;
+            margin-bottom: 18px;
+            padding: 10px 14px;
+            border-left: 5px solid var(--hot-pink);
+            border-radius: 0 15px 15px 0;
+
+            color: var(--soft-teal);
+            background: linear-gradient(
+                90deg,
+                #F6D5DE 0%,
+                #FFF9F5 55%,
+                #F6E7A9 100%
+            );
+
+            font-family: 'Fredoka', sans-serif;
+            font-size: 25px;
+            font-weight: 600;
+            letter-spacing: .3px;
+            line-height: 1.4;
+
+            transition:
+                padding .25s ease,
+                background .25s ease;
+        }
+
+        h2:hover {
+            padding-left: 19px;
+            background: linear-gradient(
+                90deg,
+                #F6E7A9,
+                #F6D5DE,
+                #FFF9F5
+            );
+        }
+
+        h3 {
+            margin-top: 8px;
+            margin-bottom: 16px;
+            padding: 9px 14px;
+            border-left: 5px solid var(--hot-pink);
+            border-radius: 0 15px 15px 0;
+
+            color: var(--soft-teal);
+            background: linear-gradient(
+                90deg,
+                #F6D5DE,
+                #FFF9F5 60%,
+                #F6E7A9
+            );
+
+            font-family: 'Fredoka', sans-serif;
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: .3px;
+            line-height: 1.4;
+
+            transition:
+                padding .25s ease,
+                background .25s ease;
+        }
+
+        h3:hover {
+            padding-left: 19px;
+            background: linear-gradient(
+                90deg,
+                #F6E7A9,
+                #F6D5DE,
+                #FFF9F5
+            );
+        }
+
+        /* TEKS */
+
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+        }
+
+        strong {
+            color: var(--soft-teal);
+            font-weight: 800;
+        }
+
+        /* SIDEBAR */
+
+        tr:nth-child(3) td:last-child {
+            width: 25%;
+
+            background-color: #F9E9C1;
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(242, 198, 184, .65) 1.5px,
+                    transparent 2px
+                ),
+                linear-gradient(
+                    145deg,
+                    #F6E7A9,
+                    #FFF3E7 75%,
+                    #F6D5DE
+                );
+            background-size: 18px 18px, 100% 100%;
+        }
+
+        tr:nth-child(3) td:last-child h3 {
+            margin-top: 0;
+            padding: 7px 10px;
+            border: 1px solid rgba(118, 185, 178, .6);
+            border-left: 4px solid var(--teal);
+            border-radius: 13px;
+            background: rgba(255, 249, 245, .9);
+            font-size: 17px;
+            text-align: center;
+        }
+
+        ol {
+            padding-left: 23px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        tr:nth-child(3) td:last-child a {
+            border-bottom: 1px dotted var(--teal);
+            overflow-wrap: anywhere;
+        }
+
+        tr:nth-child(3) td:last-child a:hover {
+            padding-left: 4px;
+            border-bottom-color: var(--hot-pink);
+        }
+
+        /* SPARKLE SAAT DIKLIK */
+
+        .click-sparkle {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            font-size: 18px;
+            line-height: 1;
+            animation: sparkleFly .65s ease-out forwards;
+        }
+
+        /* TRANSISI HALAMAN */
+
         body.page-leaving {
-            animation: pageDisappear 0.32s ease forwards;
+            animation: pageDisappear .32s ease forwards;
             pointer-events: none;
         }
 
         /* FOOTER */
+
         tr:last-child td {
-            background-color: #B99A83;
-            color: #FFF;
-            text-align: right;
-            padding: 16px 20px;
+            padding: 15px 20px;
             border: none;
+            border-top: 3px solid var(--white);
+            color: var(--white);
+            text-align: right;
+
+            background-color: var(--beige);
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, .28) 1.5px,
+                    transparent 2px
+                ),
+                linear-gradient(
+                    100deg,
+                    #B99A83,
+                    #D0ADBA
+                );
+            background-size: 17px 17px, 100% 100%;
+
+            font-weight: 700;
         }
 
-        /* TAMPILAN MOBILE */
+        tr:last-child small {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .15);
+        }
+
+        /* RESPONSIVE MOBILE */
+
         @media (max-width: 600px) {
             body {
-                padding: 10px 5px;
+                padding: 20px 7px;
+                font-size: 13px;
+                line-height: 1.75;
+            }
+
+            body::before {
+                margin-bottom: 12px;
+                font-size: 18px;
+                letter-spacing: 5px;
+            }
+
+            body::after {
+                right: 10px;
+                bottom: 8px;
+                font-size: 29px;
             }
 
             table {
                 width: 100%;
-                font-size: 13px;
+                border-width: 2px;
                 border-radius: 16px;
+
+                box-shadow:
+                    0 0 0 3px rgba(255, 255, 255, .9),
+                    0 0 0 6px rgba(242, 198, 184, .85),
+                    0 8px 20px rgba(156, 113, 87, .2);
             }
 
             td {
@@ -270,55 +599,118 @@
             }
 
             tr:first-child td {
-                padding: 18px 10px;
+                padding: 20px 10px;
+            }
+
+            tr:first-child td::before {
+                font-size: 9px;
+                letter-spacing: 1.5px;
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
 
             h2 {
+                padding: 8px 9px;
                 font-size: 19px;
             }
 
             h3 {
+                padding: 8px 10px;
                 font-size: 17px;
             }
 
             tr:nth-child(2) td {
                 padding: 10px 4px;
+                line-height: 2.4;
             }
 
             tr:nth-child(2) a {
-                padding: 4px;
-            }
-
-            tr:nth-child(3) td {
-                padding: 12px 9px;
+                margin: 2px;
+                padding: 4px 7px;
+                font-size: 12px;
+                box-shadow: 0 3px 0 var(--teal);
             }
 
             tr:nth-child(3) td:first-child {
-                border-radius: 12px 6px 6px 12px;
+                width: 75%;
+                padding: 12px 9px;
             }
 
             tr:nth-child(3) td:last-child {
-                border-radius: 6px 12px 12px 6px;
+                width: 25%;
+                padding: 10px 7px;
+                font-size: 12px;
+            }
+
+            tr:nth-child(3) td:last-child h3 {
+                padding: 6px 4px;
+                font-size: 13px;
+            }
+
+            ol {
+                padding-left: 17px;
+            }
+
+            li {
+                margin-bottom: 8px;
+                overflow-wrap: anywhere;
+            }
+
+            tr:last-child td {
+                padding: 12px 10px;
             }
         }
 
-        /* AKSESIBILITAS: KURANGI ANIMASI */
-        @media (prefers-reduced-motion: reduce) {
-            body,
-            body.page-leaving {
-                animation: none;
+        @media (max-width: 360px) {
+            body {
+                padding: 17px 5px;
+                font-size: 12px;
             }
 
+            h1 {
+                font-size: 21px;
+            }
+
+            tr:nth-child(3) td:first-child {
+                padding: 9px 7px;
+            }
+
+            tr:nth-child(3) td:last-child {
+                padding: 8px 5px;
+            }
+
+            tr:nth-child(2) a {
+                padding: 3px 5px;
+                font-size: 11px;
+            }
+        }
+
+        /* AKSESIBILITAS */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            body,
+            body::before,
+            body::after,
+            body.page-leaving {
+                animation: none !important;
+            }
+
+            table,
+            td,
             a,
             a:hover,
-            a:active {
-                animation: none;
-                transition: none;
-                transform: none;
+            a:active,
+            h2,
+            h3 {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
             }
 
             .click-sparkle {
@@ -335,7 +727,11 @@
             <td colspan="2">
                 <p>&nbsp;</p>
                 <h1>Website Yupi sekolah</h1>
-                <p><em>Di mana ada makanan, di situ kita kenyang dan pintar.</em></p>
+                <p>
+                    <em>
+                        Di mana ada makanan, di situ kita kenyang dan pintar.
+                    </em>
+                </p>
                 <p>&nbsp;</p>
             </td>
         </tr>
@@ -356,18 +752,41 @@
                 <h2>Fanmeet Mingyu x Dior di Plaza Senayan Jakarta</h2>
 
                 <p>
-                    Menghadiri acara Dior yang berlangsung di Plaza Senayan, Jakarta, pada 14 Agustus 2026. Dalam kegiatan tersebut, saya menyaksikan kehadiran Mingyu SEVENTEEN sebagai tamu spesial sekaligus menikmati suasana pop-up Dior yang menampilkan koleksi Autumn/Winter 2026–2027. Saya juga melihat berbagai instalasi dengan konsep taman Paris yang terinspirasi dari Jardin des Tuileries.
+                    Menghadiri acara Dior yang berlangsung di Plaza Senayan,
+                    Jakarta, pada 14 Agustus 2026. Dalam kegiatan tersebut,
+                    saya menyaksikan kehadiran Mingyu SEVENTEEN sebagai tamu
+                    spesial sekaligus menikmati suasana pop-up Dior yang
+                    menampilkan koleksi Autumn/Winter 2026–2027. Saya juga
+                    melihat berbagai instalasi dengan konsep taman Paris
+                    yang terinspirasi dari Jardin des Tuileries.
                 </p>
             </td>
 
             <!-- TAUTAN EKSTERNAL -->
             <td width="25%" valign="top">
                 <h3>Tautan Eksternal</h3>
+
                 <ol>
-                    <li><a href="https://www.mawan.or.id">Website Mawan</a></li>
-                    <li><a href="https://www.github.com">Github</a></li>
-                    <li><a href="https://www.wikipedia.org">Wikipedia</a></li>
-                    <li><a href="https://www.w3schools.com">W3Schools</a></li>
+                    <li>
+                        <a href="https://www.mawan.or.id">
+                            Website Mawan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.github.com">
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.wikipedia.org">
+                            Wikipedia
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.w3schools.com">
+                            W3Schools
+                        </a>
+                    </li>
                 </ol>
             </td>
         </tr>
@@ -375,12 +794,12 @@
         <!-- FOOTER -->
         <tr>
             <td colspan="2">
-                © Copyright Noya Yupi, 2026.
+                <small>© Copyright Noya Yupi, 2026.</small>
             </td>
         </tr>
     </table>
 
-    <!-- JAVASCRIPT ANIMASI KLIK -->
+    <!-- JAVASCRIPT ANIMASI INTERAKTIF -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const reducedMotion = window.matchMedia(
@@ -457,7 +876,7 @@
 
                     document.body.classList.add("page-leaving");
 
-                    setTimeout(() => {
+                    window.setTimeout(() => {
                         window.location.href = destination;
                     }, 300);
                 });
