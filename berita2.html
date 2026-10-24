@@ -5,328 +5,542 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seputar Ekonomi Indonesia</title>
-
-    <!-- FONT WEBSITE YUPI -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        /* TAMPILAN UTAMA */
+<!-- FONT WEBSITE YUPI -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    /* =========================================
+       PALET WARNA YUPI - PEACH & BUTTER YELLOW
+       ========================================= */
+    :root {
+        --peach: #FBE0CF;
+        --soft-peach: #FFF0E5;
+        --pink: #F6D5DE;
+        --hot-pink: #C76F8D;
+        --yellow: #F6E7A9;
+        --butter: #FFF6D7;
+        --orange: #D99A70;
+        --cream: #FFF9F5;
+        --brown: #73594B;
+        --teal: #76B9B2;
+        --deep-teal: #547F79;
+        --soft-teal: #579D96;
+        --lavender: #C4A0D8;
+        --border: #E8D8D0;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        position: relative;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px 12px 40px;
+        overflow-x: hidden;
+        color: var(--brown);
+        font-family: 'Nunito', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.8;
+        background-color: var(--soft-peach);
+        background-image:
+            radial-gradient(circle, rgba(255,255,255,.85) 2px, transparent 2.8px),
+            radial-gradient(circle, rgba(246,213,222,.8) 2px, transparent 2.8px),
+            linear-gradient(
+                135deg,
+                #FBE0CF 0%,
+                #FFF1D0 42%,
+                #F8DDE5 72%,
+                #FCE9D9 100%
+            ),
+            url("images/background.svg");
+        background-size:
+            28px 28px,
+            37px 37px,
+            cover,
+            auto;
+        background-position:
+            0 0,
+            13px 17px,
+            center,
+            center;
+        background-attachment: fixed;
+        animation: pageAppear .65s ease both;
+    }
+    body::before {
+        content: "✧  ♡  ✦  ♡  ✧";
+        display: block;
+        margin: 0 auto 18px;
+        color: #C76F8D;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 21px;
+        letter-spacing: 8px;
+        text-align: center;
+        text-shadow: 0 2px 0 rgba(255,255,255,.8);
+    }
+    body::after {
+        content: "♡";
+        position: fixed;
+        z-index: 0;
+        right: 22px;
+        bottom: 14px;
+        color: rgba(199,111,141,.65);
+        font-size: 42px;
+        pointer-events: none;
+        animation: floatingHeart 3s ease-in-out infinite;
+    }
+    @keyframes pageAppear {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes pageDisappear {
+        to {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+    }
+    @keyframes floatingHeart {
+        0%, 100% {
+            transform: translateY(0) rotate(-8deg);
+        }
+        50% {
+            transform: translateY(-8px) rotate(8deg);
+        }
+    }
+    @keyframes cuteBounce {
+        0%, 100% {
+            transform: translateY(0) scale(1.03);
+        }
+        35% {
+            transform: translateY(-5px) scale(1.07);
+        }
+        65% {
+            transform: translateY(1px) scale(.98);
+        }
+    }
+    /* =========================================
+       TABEL UTAMA - SCRAPBOOK FRAME
+       ========================================= */
+    table {
+        position: relative;
+        z-index: 1;
+        width: 900px;
+        max-width: 100%;
+        margin: auto;
+        border: 3px solid #E7AFAE;
+        border-spacing: 0;
+        border-collapse: separate;
+        border-radius: 24px;
+        overflow: hidden;
+        background-color: var(--cream);
+        box-shadow:
+            0 0 0 5px rgba(255,249,245,.8),
+            0 0 0 9px rgba(246,213,222,.75),
+            0 14px 32px rgba(153,100,83,.2);
+        transition: box-shadow .3s ease;
+    }
+    table:hover {
+        box-shadow:
+            0 0 0 5px rgba(255,249,245,.9),
+            0 0 0 9px rgba(246,213,222,.85),
+            0 18px 38px rgba(153,100,83,.25);
+    }
+    td {
+        padding: 18px;
+        border: 1px solid var(--border);
+        overflow-wrap: anywhere;
+        transition: background-color .3s ease, border-radius .3s ease;
+    }
+    /* =========================================
+       HEADER WEBSITE
+       ========================================= */
+    tr:first-child td {
+        position: relative;
+        background-color: #E9AFA6;
+        background-image:
+            url("images/jaring-teal.svg"),
+            linear-gradient(135deg, #E7AFAE, #D99591 55%, #D9B4D5);
+        background-size: cover, cover;
+        background-position: center;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 30px 20px 28px;
+        border: none;
+    }
+    tr:first-child td::before {
+        content: "★  WELCOME TO MY WEB  ★";
+        display: inline-block;
+        margin-bottom: 13px;
+        padding: 4px 15px;
+        border: 1px dashed rgba(255,255,255,.9);
+        border-radius: 20px;
+        background: rgba(255,255,255,.17);
+        color: #FFFFFF;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+    h1 {
+        margin: 0 0 12px;
+        color: #FFFFFF;
+        font-family: 'Fredoka', sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: .5px;
+        line-height: 1.25;
+        text-shadow: 0 3px 0 rgba(125,78,88,.25);
+    }
+    tr:first-child p {
+        display: inline-block;
+        max-width: 100%;
+        margin: 0;
+        padding: 7px 15px;
+        border: 1px dashed rgba(255,255,255,.85);
+        border-radius: 18px;
+        background: rgba(255,249,245,.18);
+        color: #FFFFFF;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+    }
+    /* =========================================
+       MENU NAVIGASI
+       ========================================= */
+    tr:nth-child(2) td {
+        padding: 17px 12px;
+        border-bottom: 3px dotted #E7AFAE;
+        background-color: #F6D5DE;
+        background-image:
+            radial-gradient(circle, rgba(255,255,255,.8) 1.5px, transparent 2px),
+            linear-gradient(100deg, #F6D5DE, #FFF0D4, #E9DDF4);
+        background-size: 18px 18px, cover;
+        text-align: center;
+    }
+    a {
+        position: relative;
+        display: inline-block;
+        color: var(--deep-teal);
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        text-decoration: none;
+        transition:
+            color .25s ease,
+            transform .25s cubic-bezier(.2,1.5,.5,1),
+            box-shadow .25s ease,
+            background-color .25s ease;
+    }
+    a:hover {
+        color: var(--hot-pink);
+        text-decoration: underline;
+        transform: translateY(-2px) scale(1.04);
+        text-shadow: 0 3px 10px rgba(199,111,141,.18);
+    }
+    a:active {
+        transform: scale(.93);
+        transition-duration: .1s;
+    }
+    tr:nth-child(2) a {
+        margin: 3px 2px;
+        padding: 6px 10px;
+        border: 2px solid rgba(255,255,255,.95);
+        border-radius: 13px;
+        background: linear-gradient(135deg, #FFF9F5, #FFF0E5);
+        box-shadow: 0 3px 0 #D7A7A9;
+        white-space: normal;
+    }
+    tr:nth-child(2) a:hover {
+        background: linear-gradient(135deg, #FFF6D7, #FBE0CF);
+        text-decoration: none;
+        animation: cuteBounce .4s ease;
+        box-shadow: 0 4px 0 #D7A7A9;
+    }
+    /* =========================================
+       AREA ARTIKEL
+       ========================================= */
+    tr:nth-child(3) td {
+        vertical-align: top;
+        background: linear-gradient(145deg, #FFF9F5, #FFF6EC);
+        line-height: 1.85;
+        transition: background-color .3s ease, box-shadow .3s ease;
+    }
+    tr:nth-child(3) td:first-child {
+        border-right: 2px dashed #E9C6B7;
+        border-radius: 18px 8px 8px 18px;
+    }
+    tr:nth-child(3) td:first-child:hover {
+        background: linear-gradient(145deg, #FFF9F5, #FFF0E5);
+    }
+    /* =========================================
+       JUDUL ARTIKEL
+       ========================================= */
+    h2,
+    h3 {
+        color: var(--soft-teal);
+        font-family: 'Fredoka', sans-serif;
+        font-weight: 600;
+        letter-spacing: .2px;
+    }
+    h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 12px 14px;
+        border-left: 6px solid #E7AFAE;
+        border-radius: 4px 15px 15px 4px;
+        background: linear-gradient(100deg, #FBE0CF, #FFF0D4, #F9E5E9);
+        color: #A86670;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 1.4;
+        transition: padding-left .25s ease, background .25s ease;
+    }
+    h2:hover {
+        padding-left: 19px;
+        background: linear-gradient(100deg, #F6D5DE, #FFF0D4, #FBE0CF);
+    }
+    h3 {
+        margin-top: 0;
+        margin-bottom: 12px;
+        padding: 9px 12px;
+        border-left: 5px solid var(--yellow);
+        border-radius: 4px 12px 12px 4px;
+        background: linear-gradient(100deg, #FFF0D4, #FBE0CF);
+        color: #A86670;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+    p {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 400;
+    }
+    strong {
+        color: var(--soft-teal);
+        font-weight: 800;
+    }
+    /* Hiasan pemisah artikel */
+    tr:nth-child(3) td:first-child p:not(:last-child)::after {
+        content: "";
+        display: block;
+        width: 100%;
+        margin-top: 17px;
+        border-bottom: 2px dotted #E8C5B9;
+    }
+    /* =========================================
+       SIDEBAR TAUTAN EKSTERNAL
+       ========================================= */
+    tr:nth-child(3) td:last-child {
+        width: 30%;
+        border-radius: 8px 18px 18px 8px;
+        background-color: #FFF1D0;
+        background-image:
+            radial-gradient(circle, rgba(255,255,255,.9) 2px, transparent 2.7px),
+            linear-gradient(155deg, #FFF1D0, #FBE0CF 70%, #F6D5DE);
+        background-size: 22px 22px, cover;
+    }
+    tr:nth-child(3) td:last-child h3 {
+        text-align: center;
+        border-left: none;
+        border-bottom: 2px dashed #DDA7A0;
+        border-radius: 13px;
+        background: rgba(255,249,245,.85);
+    }
+    tr:nth-child(3) td:last-child p {
+        color: var(--soft-teal);
+        font-weight: 800;
+    }
+    ol {
+        padding-left: 23px;
+    }
+    li {
+        margin-bottom: 10px;
+        padding-left: 2px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+    }
+    li::marker {
+        color: var(--hot-pink);
+        font-weight: 800;
+    }
+    li a {
+        text-decoration: underline dotted #D9A1A8;
+        text-underline-offset: 4px;
+    }
+    li a:hover {
+        color: #B95D7B;
+    }
+    /* =========================================
+       FOOTER
+       ========================================= */
+    tr:last-child td {
+        padding: 16px 20px;
+        border: none;
+        border-top: 3px dotted rgba(255,255,255,.8);
+        background-color: #B99A83;
+        background-image:
+            radial-gradient(circle, rgba(255,255,255,.35) 2px, transparent 2.8px),
+            linear-gradient(110deg, #C79D86, #B99A83, #C58E9C);
+        background-size: 22px 22px, cover;
+        color: #FFFFFF;
+        text-align: right;
+    }
+    tr:last-child small {
+        font-weight: 800;
+        letter-spacing: .3px;
+    }
+    /* =========================================
+       EFEK SPARKLE SAAT DIKLIK
+       ========================================= */
+    .click-sparkle {
+        position: fixed;
+        z-index: 9999;
+        pointer-events: none;
+        font-size: 18px;
+        line-height: 1;
+        animation: sparkleFly .65s ease-out forwards;
+    }
+    @keyframes sparkleFly {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(.4) rotate(0deg);
+        }
+        100% {
+            opacity: 0;
+            transform:
+                translate(
+                    calc(-50% + var(--move-x)),
+                    calc(-50% + var(--move-y))
+                )
+                scale(1.4)
+                rotate(100deg);
+        }
+    }
+    body.page-leaving {
+        animation: pageDisappear .32s ease forwards;
+        pointer-events: none;
+    }
+    /* =========================================
+       RESPONSIVE UNTUK HP
+       ========================================= */
+    @media (max-width: 600px) {
         body {
-            background-color: #E5F2EF;
-            background-image: url("images/background.svg");
-            color: #73594B;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 400;
-            line-height: 1.8;
-            margin: 0;
-            padding: 20px 10px;
-            animation: pageAppear 0.65s ease both;
+            padding: 14px 7px 28px;
+            font-size: 13px;
+            background-attachment: scroll;
         }
-
-        @keyframes pageAppear {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pageDisappear {
-            to {
-                opacity: 0;
-                transform: translateY(-8px);
-            }
-        }
-
-        /* TABEL UTAMA */
-        table {
-            width: 900px;
-            max-width: 100%;
-            margin: 0 auto;
-            border: 3px solid #76B9B2;
-            border-spacing: 0;
-            border-collapse: separate;
-            border-radius: 24px;
-            overflow: hidden;
-            background-color: #FFF9F5;
-            box-shadow: 0 10px 25px rgba(76, 139, 132, 0.20);
-        }
-
-        td {
-            padding: 18px;
-            border: 1px solid #E8D8D0;
-            overflow-wrap: anywhere;
-            transition: background-color 0.3s ease, border-radius 0.3s ease;
-        }
-
-        /* HEADER WEBSITE */
-        tr:first-child td {
-            background-color: #76B9B2;
-            background-image: url("images/jaring-teal.svg");
-            background-size: cover;
-            background-position: center;
-            color: #FFF;
-            text-align: center;
-            padding: 24px;
-            border: none;
-        }
-
-        h1 {
-            color: #FFF;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-top: 0;
+        body::before {
             margin-bottom: 12px;
+            font-size: 17px;
+            letter-spacing: 5px;
         }
-
-        tr:first-child p {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 600;
+        body::after {
+            right: 8px;
+            bottom: 7px;
+            font-size: 32px;
         }
-
-        /* MENU NAVIGASI */
-        tr:nth-child(2) td {
-            background-color: #F6D5DE;
-            text-align: center;
-            padding: 16px;
+        table {
+            width: 100%;
+            border-radius: 17px;
+            border-width: 2px;
+            box-shadow:
+                0 0 0 3px rgba(255,249,245,.8),
+                0 0 0 6px rgba(246,213,222,.75),
+                0 10px 24px rgba(153,100,83,.18);
         }
-
-        a {
-            display: inline-block;
-            position: relative;
-            color: #547F79;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 800;
-            text-decoration: none;
-            transition:
-                color 0.25s ease,
-                transform 0.25s cubic-bezier(0.2, 1.5, 0.5, 1),
-                text-shadow 0.25s ease;
+        td {
+            padding: 10px;
         }
-
-        a:hover {
-            color: #C76F8D;
-            text-decoration: underline;
-            transform: translateY(-2px) scale(1.04);
-            text-shadow: 0 3px 10px rgba(199, 111, 141, 0.18);
+        tr:first-child td {
+            padding: 22px 12px;
         }
-
-        a:active {
-            transform: scale(0.91);
-            transition-duration: 0.1s;
+        tr:first-child td::before {
+            font-size: 9px;
+            letter-spacing: 1.5px;
         }
-
-        tr:nth-child(2) a {
-            padding: 5px 8px;
-            border-radius: 12px;
-        }
-
-        tr:nth-child(2) a:hover {
-            background-color: rgba(255, 249, 245, 0.75);
-            text-decoration: none;
-            animation: cuteBounce 0.4s ease;
-        }
-
-        @keyframes cuteBounce {
-            0%, 100% {
-                transform: translateY(0) scale(1.04);
-            }
-            35% {
-                transform: translateY(-5px) scale(1.08);
-            }
-            65% {
-                transform: translateY(1px) scale(0.98);
-            }
-        }
-
-        /* AREA ARTIKEL DAN SIDEBAR */
-        tr:nth-child(3) td {
-            background-color: #FFF9F5;
-            vertical-align: top;
-            line-height: 1.7;
-            transition: background-color 0.3s ease, border-radius 0.3s ease;
-        }
-
-        tr:nth-child(3) td:hover {
-            background-color: #FFF1F3;
-        }
-
-        tr:nth-child(3) td:first-child {
-            border-radius: 18px 8px 8px 18px;
-        }
-
-        tr:nth-child(3) td:last-child {
-            background-color: #E6F2EF;
-            border-radius: 8px 18px 18px 8px;
-        }
-
-        tr:nth-child(3) td:last-child p {
-            color: #579D96;
-            font-weight: 800;
-        }
-
-        /* JUDUL ARTIKEL */
-        h2 {
-            color: #579D96;
-            font-family: 'Fredoka', sans-serif;
+        h1 {
             font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            line-height: 1.4;
         }
-
-        /* SUBJUDUL SIDEBAR */
+        h2 {
+            font-size: 19px;
+            padding: 9px 10px;
+        }
         h3 {
-            color: #579D96;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 21px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            line-height: 1.4;
+            font-size: 17px;
+            padding: 8px 9px;
         }
-
-        /* TEKS */
-        p {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 400;
+        tr:nth-child(2) td {
+            padding: 10px 5px;
+            line-height: 2.5;
         }
-
-        strong {
-            color: #579D96;
-            font-weight: 800;
+        tr:nth-child(2) a {
+            padding: 4px 7px;
+            margin: 2px 1px;
+            border-radius: 10px;
         }
-
+        tr:nth-child(3) td {
+            padding: 12px 9px;
+        }
+        tr:nth-child(3) td:first-child {
+            border-radius: 12px 6px 6px 12px;
+        }
+        tr:nth-child(3) td:last-child {
+            border-radius: 6px 12px 12px 6px;
+        }
+        ol {
+            padding-left: 17px;
+        }
         li {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 500;
             margin-bottom: 8px;
         }
-
-        /* EFEK SPARKLE SAAT LINK DIKLIK */
-        .click-sparkle {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            font-size: 18px;
-            line-height: 1;
-            animation: sparkleFly 0.65s ease-out forwards;
-        }
-
-        @keyframes sparkleFly {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform:
-                    translate(
-                        calc(-50% + var(--move-x)),
-                        calc(-50% + var(--move-y))
-                    )
-                    scale(1.4)
-                    rotate(100deg);
-            }
-        }
-
-        /* ANIMASI SAAT PINDAH HALAMAN */
-        body.page-leaving {
-            animation: pageDisappear 0.32s ease forwards;
-            pointer-events: none;
-        }
-
-        /* FOOTER */
         tr:last-child td {
-            background-color: #B99A83;
-            color: #FFF;
-            text-align: right;
-            padding: 16px 20px;
-            border: none;
+            padding: 12px;
         }
-
-        /* TAMPILAN MOBILE */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px 5px;
-            }
-
-            table {
-                width: 100%;
-                font-size: 13px;
-                border-radius: 16px;
-            }
-
-            td {
-                padding: 10px;
-                overflow-wrap: anywhere;
-            }
-
-            tr:first-child td {
-                padding: 18px 10px;
-            }
-
-            h1 {
-                font-size: 22px;
-            }
-
-            h2 {
-                font-size: 19px;
-            }
-
-            h3 {
-                font-size: 17px;
-            }
-
-            tr:nth-child(2) td {
-                padding: 10px 4px;
-            }
-
-            tr:nth-child(2) a {
-                padding: 4px;
-            }
-
-            tr:nth-child(3) td {
-                padding: 12px 9px;
-            }
-
-            tr:nth-child(3) td:first-child {
-                border-radius: 12px 6px 6px 12px;
-            }
-
-            tr:nth-child(3) td:last-child {
-                border-radius: 6px 12px 12px 6px;
-            }
+    }
+    @media (max-width: 360px) {
+        body {
+            padding-right: 5px;
+            padding-left: 5px;
         }
-
-        /* AKSESIBILITAS: KURANGI ANIMASI */
-        @media (prefers-reduced-motion: reduce) {
-            body,
-            body.page-leaving {
-                animation: none;
-            }
-
-            a,
-            a:hover,
-            a:active {
-                animation: none;
-                transition: none;
-                transform: none;
-            }
-
-            .click-sparkle {
-                display: none;
-            }
+        td {
+            padding: 8px;
         }
-    </style>
+        h1 {
+            font-size: 21px;
+        }
+        h2 {
+            font-size: 17px;
+        }
+        tr:nth-child(2) a {
+            font-size: 12px;
+        }
+    }
+    /* =========================================
+       AKSESIBILITAS
+       ========================================= */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: .01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+            transition-duration: .01ms !important;
+        }
+        body,
+        body.page-leaving {
+            animation: none;
+        }
+        .click-sparkle {
+            display: none;
+        }
+    }
+</style>
 </head>
-
 <body>
     <table>
         <!-- HEADER -->
@@ -338,142 +552,116 @@
                 <p>&nbsp;</p>
             </td>
         </tr>
-
-        <!-- MENU NAVIGASI -->
-        <tr>
-            <td colspan="2">
-                <a href="index.html">Beranda</a> |
-                <a href="Tentangsaya.html">Tentang saya</a> |
-                <a href="kegiatan.html">Kegiatan</a> |
-                <a href="kontak.html">Kontak</a>
-            </td>
-        </tr>
-
-        <!-- ISI ARTIKEL DAN TAUTAN EKSTERNAL -->
-        <tr>
-            <td width="70%">
-                <h2>SEVENTEEN Jeonghan dan Joshua Debut sebagai Unit JxJ Oktober Mendatang</h2>
-
-                <p>
-                    SEVENTEEN Jeonghan dan Joshua resmi debut sebagai unit terbaru bernama JxJ pada 19 Oktober mendatang. Keduanya akan merilis mini album perdana bertajuk 'DREAMSCAPE' pada pukul 18.00 waktu Korea Selatan.
-                </p>
-
-                <p>
-                    PLEDIS Entertainment mengumumkan JxJ sebagai unit baru yang mempertemukan Jeonghan dan Joshua dalam proyek musik tersebut. Mini album 'DREAMSCAPE' dijadwalkan hadir bersamaan dengan debut resmi mereka pada 19 Oktober 2026.
-                </p>
-
-                <p>
-                    Menurut agensi, 'DREAMSCAPE' memiliki makna lanskap mimpi yang mengeksplorasi dua dimensi pengalaman bermimpi manusia. Album tersebut mengangkat fantasi dari alam bawah sadar serta berbagai idealisme yang ingin diwujudkan menjadi kenyataan.
-                </p>
-
-                <p>
-                    Melalui musik, 'DREAMSCAPE' menggambarkan siklus tanpa akhir dan pertemuan antara dua bentuk mimpi tersebut. Konsep itu menghadirkan batas realitas dan fantasi yang semakin kabur hingga menciptakan pengalaman sensorik baru bagi pendengar.
-                </p>
-            </td>
-
-            <!-- TAUTAN EKSTERNAL -->
-            <td width="30%" valign="top">
-                <h3>Tautan&nbsp;Eksternal</h3>
-                <ol>
-                    <li><a href="https://www.mawan.net" target="_blank" rel="noopener noreferrer">Website Mawan</a></li>
-                    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></li>
-                    <li><a href="https://wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
-                    <li><a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
-                </ol>
-            </td>
-        </tr>
-
-        <!-- FOOTER -->
-        <tr>
-            <td colspan="2">
-                © Copyright Noya Yupi, 2026.
-            </td>
-        </tr>
-    </table>
-
-    <!-- JAVASCRIPT ANIMASI KLIK -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const reducedMotion = window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
-
-            function createSparkles(x, y) {
-                if (reducedMotion) return;
-
-                const symbols = ["✦", "✧", "♡", "✦", "⋆"];
-                const colors = [
-                    "#E99AB2",
-                    "#76B9B2",
-                    "#C4A0D8",
-                    "#D9AA73"
-                ];
-
-                for (let i = 0; i < 5; i++) {
-                    const sparkle = document.createElement("span");
-
-                    sparkle.className = "click-sparkle";
-                    sparkle.textContent =
-                        symbols[Math.floor(Math.random() * symbols.length)];
-
-                    sparkle.style.left = x + "px";
-                    sparkle.style.top = y + "px";
-                    sparkle.style.color = colors[i % colors.length];
-
-                    sparkle.style.setProperty(
-                        "--move-x",
-                        (Math.random() - 0.5) * 100 + "px"
-                    );
-
-                    sparkle.style.setProperty(
-                        "--move-y",
-                        (Math.random() - 0.5) * 100 + "px"
-                    );
-
-                    document.body.appendChild(sparkle);
-
-                    sparkle.addEventListener(
-                        "animationend",
-                        () => sparkle.remove(),
-                        { once: true }
-                    );
-                }
+    <!-- MENU NAVIGASI -->
+    <tr>
+        <td colspan="2">
+            <a href="index.html">Beranda</a> |
+            <a href="Tentangsaya.html">Tentang saya</a> |
+            <a href="kegiatan.html">Kegiatan</a> |
+            <a href="kontak.html">Kontak</a>
+        </td>
+    </tr>
+    <!-- ISI ARTIKEL DAN TAUTAN EKSTERNAL -->
+    <tr>
+        <td width="70%">
+            <h2>SEVENTEEN Jeonghan dan Joshua Debut sebagai Unit JxJ Oktober Mendatang</h2>
+            <p>
+                SEVENTEEN Jeonghan dan Joshua resmi debut sebagai unit terbaru bernama JxJ pada 19 Oktober mendatang. Keduanya akan merilis mini album perdana bertajuk 'DREAMSCAPE' pada pukul 18.00 waktu Korea Selatan.
+            </p>
+            <p>
+                PLEDIS Entertainment mengumumkan JxJ sebagai unit baru yang mempertemukan Jeonghan dan Joshua dalam proyek musik tersebut. Mini album 'DREAMSCAPE' dijadwalkan hadir bersamaan dengan debut resmi mereka pada 19 Oktober 2026.
+            </p>
+            <p>
+                Menurut agensi, 'DREAMSCAPE' memiliki makna lanskap mimpi yang mengeksplorasi dua dimensi pengalaman bermimpi manusia. Album tersebut mengangkat fantasi dari alam bawah sadar serta berbagai idealisme yang ingin diwujudkan menjadi kenyataan.
+            </p>
+            <p>
+                Melalui musik, 'DREAMSCAPE' menggambarkan siklus tanpa akhir dan pertemuan antara dua bentuk mimpi tersebut. Konsep itu menghadirkan batas realitas dan fantasi yang semakin kabur hingga menciptakan pengalaman sensorik baru bagi pendengar.
+            </p>
+        </td>
+        <!-- TAUTAN EKSTERNAL -->
+        <td width="30%" valign="top">
+            <h3>Tautan&nbsp;Eksternal</h3>
+            <ol>
+                <li><a href="https://www.mawan.net" target="_blank" rel="noopener noreferrer">Website Mawan</a></li>
+                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></li>
+                <li><a href="https://wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
+                <li><a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a></li>
+            </ol>
+        </td>
+    </tr>
+    <!-- FOOTER -->
+    <tr>
+        <td colspan="2">
+            © Copyright Noya Yupi, 2026.
+        </td>
+    </tr>
+</table>
+<!-- JAVASCRIPT ANIMASI KLIK -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const reducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+        function createSparkles(x, y) {
+            if (reducedMotion) return;
+            const symbols = ["✦", "✧", "♡", "✦", "⋆"];
+            const colors = [
+                "#E99AB2",
+                "#76B9B2",
+                "#C4A0D8",
+                "#D9AA73"
+            ];
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement("span");
+                sparkle.className = "click-sparkle";
+                sparkle.textContent =
+                    symbols[Math.floor(Math.random() * symbols.length)];
+                sparkle.style.left = x + "px";
+                sparkle.style.top = y + "px";
+                sparkle.style.color = colors[i % colors.length];
+                sparkle.style.setProperty(
+                    "--move-x",
+                    (Math.random() - 0.5) * 100 + "px"
+                );
+                sparkle.style.setProperty(
+                    "--move-y",
+                    (Math.random() - 0.5) * 100 + "px"
+                );
+                document.body.appendChild(sparkle);
+                sparkle.addEventListener(
+                    "animationend",
+                    () => sparkle.remove(),
+                    { once: true }
+                );
             }
-
-            document.querySelectorAll("a").forEach(link => {
-                link.addEventListener("click", event => {
-                    const href = link.getAttribute("href");
-
-                    const shouldNotNavigate =
-                        !href ||
-                        href.startsWith("#") ||
-                        href.startsWith("javascript:") ||
-                        link.hasAttribute("download") ||
-                        link.target === "_blank" ||
-                        event.ctrlKey ||
-                        event.metaKey ||
-                        event.shiftKey ||
-                        event.altKey ||
-                        event.button !== 0;
-
-                    createSparkles(event.clientX, event.clientY);
-
-                    if (shouldNotNavigate || reducedMotion) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    const destination = link.href;
-
-                    document.body.classList.add("page-leaving");
-
-                    setTimeout(() => {
-                        window.location.href = destination;
-                    }, 300);
-                });
+        }
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", event => {
+                const href = link.getAttribute("href");
+                const shouldNotNavigate =
+                    !href ||
+                    href.startsWith("#") ||
+                    href.startsWith("javascript:") ||
+                    link.hasAttribute("download") ||
+                    link.target === "_blank" ||
+                    event.ctrlKey ||
+                    event.metaKey ||
+                    event.shiftKey ||
+                    event.altKey ||
+                    event.button !== 0;
+                createSparkles(event.clientX, event.clientY);
+                if (shouldNotNavigate || reducedMotion) {
+                    return;
+                }
+                event.preventDefault();
+                const destination = link.href;
+                document.body.classList.add("page-leaving");
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 300);
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
